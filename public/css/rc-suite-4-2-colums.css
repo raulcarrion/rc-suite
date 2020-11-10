@@ -1,0 +1,27 @@
+/*                
+                    mostrar 4 items por fila 
+*/
+@media screen and (min-width:1024px) {
+    .woocommerce ul.products.columns-3 li.product, 
+    #left-area > ul.products.columns-4 li.product  { 
+      width: 21% !important;
+      margin: 2% !important;
+      clear: none !important;
+    }
+    .woocommerce ul.products.columns-3 li.product:nth-child(4n+1),
+    #left-area > ul.products.columns-4 li.product:nth-child(4n+1) {
+      clear: both !important;
+    }
+  }
+  
+  /*      para mostrar 2 items por fila en mobile   */
+  
+@media ( max-width: 478px ) {
+   .woocommerce-page ul.products li.product.type-product:nth-child(n) {
+    width: 47.5% !important;
+    margin-right: 2.5% !important;
+   }
+   .woocommerce-page ul.products li.product.type-product:nth-child(2n) {
+    margin-right: 0 !important;
+   }
+}

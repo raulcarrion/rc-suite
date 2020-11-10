@@ -66,12 +66,10 @@ class Rc_Suite {
 	private function load_dependencies() {
 
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-rc-suite-loader.php';
-
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-rc-suite-i18n.php';
-
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-rc-suite-admin.php';
-
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-rc-suite-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-rc-reemplazador.php';
 
 		$this->loader = new Rc_Suite_Loader();
 
@@ -101,17 +99,24 @@ class Rc_Suite {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'rc_menu_plugin' );
 
+		// Para el control de errores
+		$this->loader->add_action( 'admin_notices', $plugin_admin, 'rc_suite_admin_notices' );
+
+		/*
+		 *	AJAX
+		 */
+		$this->loader->add_action( 'wp_ajax_rcru-get-replacer-file-det', $plugin_admin, 'rcsu_ajx_replacer_get_file_details');
+		$this->loader->add_action( 'wp_ajax_rcru-replacer-test-file', $plugin_admin, 'rcsu_ajx_test_file');
+		$this->loader->add_action( 'wp_ajax_rcru-replacer-process-file', $plugin_admin, 'rcsu_ajx_process_file');
+
+		/*
+			OPCIONES DEL GENERAL
+		*/
 		if(get_option('rc_anti_publi_plugins_enabled')==1)
-		{
 			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'rc_anti_publi_plugins' );
-		}
 
 		if(get_option('rc_divi_projects_disabled_enabled')==1)
-		{
 			$this->loader->add_action( 'et_project_posttype_args', $plugin_admin, 'rc_divi_projects_disabled',10,1 );
-		}
-
-
 	}
 
 	/**
@@ -138,6 +143,13 @@ class Rc_Suite {
 		if(get_option('rc_login_customer_enabled')==1)
 		{
 			$this->loader->add_action('wp_nav_menu_items', $plugin_public, 'rc_login_customer',10,2 );
+		}
+
+		// 	Ocultar el price range de woocommerce
+		if(get_option('rcsu_woo_hide_price_range_enabled'))
+		{
+			$this->loader->add_filter( 'woocommerce_variable_sale_price_html', $plugin_public, 'rcsu_hide_variable_product_price', 10, 2 );
+			$this->loader->add_filter( 'woocommerce_variable_price_html', $plugin_public ,'rcsu_hide_variable_product_price', 10, 2 );		
 		}
 	}
 

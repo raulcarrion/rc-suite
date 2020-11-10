@@ -1,0 +1,54 @@
+/*
+
+          MEGMENU MOBILE MENU
+
+*/
+
+/* Cambia el menu a X cuando está abierto */
+.mobile_nav.opened .mobile_menu_bar:before {
+    content: '\4d';
+}
+
+/*Menú responsive */
+
+#main-header .et_mobile_menu li ul.hide {
+    display: none !important;
+}
+
+#mobile_menu .menu-item-has-children {
+    position: relative;
+}
+#mobile_menu .menu-item-has-children > a {
+    background: transparent;
+}
+
+#mobile_menu .menu-item-has-children > a + span {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 3;
+}
+
+span.menu-closed:before {
+    content: "\4c";
+    display: block;
+    font-size: 16px;
+    font-family: ETmodules;
+}
+
+span.menu-closed.menu-open:before {
+    content: "\4d";
+}
+
+#mobile_menu .menu-item{
+  background-color: white;
+}
+
+#mobile_menu li:last-child{
+  font-size: 14px;
+  padding-top: 7px;
+}

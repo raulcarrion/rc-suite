@@ -24,6 +24,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 define( 'RC_SUITE_VERSION', '1.0.0' );
+define( 'PLUGIN_PATH_UPLOAD_FILES', wp_upload_dir()['basedir'] . "/rcsu_files/");
 
 function activate_rc_suite() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-rc-suite-activator.php';

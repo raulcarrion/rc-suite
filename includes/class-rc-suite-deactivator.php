@@ -20,7 +20,7 @@ class Rc_Suite_Deactivator {
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
-
+		
 	}
 
 }

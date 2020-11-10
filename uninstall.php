@@ -10,3 +10,6 @@
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
+
+//Borramos el directorios para subir CSVs
+rmdir(PLUGIN_PATH_UPLOAD_FILES);

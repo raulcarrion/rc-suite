@@ -47,6 +47,14 @@ class Rc_Suite_Public {
 	public function enqueue_styles() {
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/rc-suite-public.css',array() , $this->version, false  );
+		
+		//4-2 Product colums
+		if(get_option('rcsu_4_2_columns_enabled'))
+			wp_enqueue_style( $this->plugin_name . "_4_2_colums", plugin_dir_url( __FILE__ ) . 'css/rc-suite-4-2-colums.css',array() , $this->version, false  );
+
+		// Collapsable MENU
+		if(get_option('rcsu_collapsable_megamenu_enabled'))
+			wp_enqueue_style( $this->plugin_name . "_mobile_menu", plugin_dir_url( __FILE__ ) . 'css/rc-suite-mobile-menu.css',array() , $this->version, false  );
 	}
 
 	/**
@@ -55,6 +63,11 @@ class Rc_Suite_Public {
 	public function enqueue_scripts() {
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/rc-suite-public.js', array( 'jquery' ), $this->version, false );
+		
+		// Collapsable MENU
+		
+		if(get_option('rcsu_collapsable_megamenu_enabled'))
+			wp_enqueue_script( $this->plugin_name . "_mobile_menu", plugin_dir_url( __FILE__ ) . 'js/rc-suite-mobile-menu.js', array( 'jquery' ), $this->version, false );
 
 	}
 
@@ -103,5 +116,31 @@ class Rc_Suite_Public {
 		 * Añade el CSS del tema padre en el tema hijo
 		 */
 		wp_enqueue_style( 'rc-master', get_template_directory_uri() . '/style.css' );
+	}
+
+	/**
+	 * Oculta el variable price range de WooCommerce
+	 */
+
+	function rcsu_hide_variable_product_price( $v_price, $v_product ) {
+		
+		// Product Price
+		$prod_prices = array( $v_product->get_variation_price( 'min', true ), 
+									$v_product->get_variation_price( 'max', true ) );
+		$prod_price = $prod_prices[0]!==$prod_prices[1] ? sprintf(__('Desde %1$s', 'woocommerce'), 
+								wc_price( $prod_prices[0] ) ) : wc_price( $prod_prices[0] );
+		
+		// Regular Price
+		$regular_prices = array( $v_product->get_variation_regular_price( 'min', true ), 
+									$v_product->get_variation_regular_price( 'max', true ) );
+		sort( $regular_prices );
+		$regular_price = $regular_prices[0]!==$regular_prices[1] ? sprintf(__('Desde %1$s','woocommerce')
+								, wc_price( $regular_prices[0] ) ) : wc_price( $regular_prices[0] );
+		
+		if ( $prod_price !== $regular_price ) {
+		$prod_price = '<del>'.$regular_price.$v_product->get_price_suffix() . '</del> <ins>' . 
+								$prod_price . $v_product->get_price_suffix() . '</ins>';
+		}
+		return $prod_price;
 	}
 }

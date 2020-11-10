@@ -21,6 +21,11 @@ class Rc_Suite_Activator {
 	 */
 	public static function activate() {
 
+		//Creamos el directorios para subir CSVs
+		if (!file_exists(PLUGIN_PATH_UPLOAD_FILES))
+		{
+			mkdir(PLUGIN_PATH_UPLOAD_FILES);
+		}
 	}
 
 }
