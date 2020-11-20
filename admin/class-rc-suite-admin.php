@@ -221,7 +221,5 @@ class Rc_Suite_Admin {
 			'show_ui'             => false
 		));
 
-	
-}
-
+	}
 }

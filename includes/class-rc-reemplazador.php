@@ -214,7 +214,5 @@ class Rc_Suite_Reemplazador {
 	public function get_destination($index) {
 
         return is_null($this->reemplazos) ? "" : $this->reemplazos[$index][array_keys($this->reemplazos[$index])[0]][2];
-     }    
-    
-     
+    }    
 }

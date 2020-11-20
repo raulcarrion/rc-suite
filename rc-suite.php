@@ -9,7 +9,7 @@
  * Plugin Name:       RC Suite
  * Plugin URI:        https://www.raulcarrion.com/plugins/rc-suite/
  * Description:       Funcionalidades para mejorar tu sitio web.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Author:            Raúl Carrión
  * Author URI:        https://www.raulcarrion.com/
  * License:           GPL-2.0+
@@ -23,7 +23,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'RC_SUITE_VERSION', '1.0.0' );
+define( 'RC_SUITE_VERSION', '1.1.0' );
 define( 'PLUGIN_PATH_UPLOAD_FILES', wp_upload_dir()['basedir'] . "/rcsu_files/");
 
 function activate_rc_suite() {

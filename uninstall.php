@@ -12,4 +12,4 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 }
 
 //Borramos el directorios para subir CSVs
-rmdir(PLUGIN_PATH_UPLOAD_FILES);
+rmdir(wp_upload_dir()['basedir'] . "/rcsu_files/");

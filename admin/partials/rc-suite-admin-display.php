@@ -517,7 +517,7 @@ function rc_suite_reemplazador_content() {
 
 							foreach ($ficheros as $fichero) 
 							{
-									$selected = $_GET['rcsu-file'] == $fichero ? "selected": "";
+									$selected = (isset($_GET['rcsu-file']) && ($_GET['rcsu-file'] == $fichero)) ? "selected": "";
 									echo '<option value="'. $fichero .'" '. $selected .'>' .  $fichero . '</option>';
 							} 
 						?>
@@ -544,6 +544,5 @@ function rc_suite_reemplazador_content() {
 			</table>
 			
 	  </form>
-
 <?php
 }

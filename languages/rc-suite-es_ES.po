@@ -1,52 +1,272 @@
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: RC Suite\n"
-"POT-Creation-Date: 2020-03-22 12:15+0100\n"
-"PO-Revision-Date: 2020-03-22 12:16+0100\n"
+"POT-Creation-Date: 2020-11-15 13:54+0100\n"
+"PO-Revision-Date: 2020-11-15 13:56+0100\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: rc-suite.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"Last-Translator: \n"
-"Language: es_ES\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: public/class-rc-suite-public.php:140
+#: admin/class-rc-suite-admin.php:90 admin/class-rc-suite-admin.php:122
+#: admin/class-rc-suite-admin.php:161
+msgid "Authorization denied!"
+msgstr "¡Autorización denegada!"
+
+#: admin/class-rc-suite-admin.php:102 admin/class-rc-suite-admin.php:141
+#: admin/class-rc-suite-admin.php:180
+msgid "Error opening the file"
+msgstr "Error al abrir el archivo"
+
+#: admin/class-rc-suite-admin.php:106 admin/class-rc-suite-admin.php:145
+#: admin/class-rc-suite-admin.php:184
+msgid "File name is empty!!"
+msgstr "El nombre del archivo está vacío!!"
+
+#: admin/class-rc-suite-admin.php:138
+msgid "Error testing the file!"
+msgstr "Error al probar el archivo!"
+
+#: admin/class-rc-suite-admin.php:177
+msgid "Error processing the file!"
+msgstr "Error al procesar el archivo!"
+
+#: admin/partials/rc-suite-admin-display.php:30
+msgid "Unknow origin"
+msgstr "Origen desconocido"
+
+#: admin/partials/rc-suite-admin-display.php:33
+msgid "Generic error"
+msgstr "Error genérico"
+
+#: admin/partials/rc-suite-admin-display.php:38
+msgid "File uploaded successfuly"
+msgstr "Archivo cargado correctamente"
+
+#: admin/partials/rc-suite-admin-display.php:41
+msgid "There was an error uploading the file!"
+msgstr "Se ha producido un error al cargar el archivo!"
+
+#: admin/partials/rc-suite-admin-display.php:44
+msgid "Mathes using file "
+msgstr "Coincidencias usando el fichero"
+
+#: admin/partials/rc-suite-admin-display.php:47
+msgid "File "
+msgstr "Archivo "
+
+#: admin/partials/rc-suite-admin-display.php:51
+msgid "Error deleting the file "
+msgstr "Error al eliminar el archivo "
+
+#: admin/partials/rc-suite-admin-display.php:55
+msgid "Number of replacements done using file "
+msgstr "Número de reemplazos realizados usando archivo "
+
+#: admin/partials/rc-suite-admin-display.php:58
+msgid "There was an error processing file "
+msgstr "Se ha producido un archivo de procesamiento de errores "
+
+#: admin/partials/rc-suite-admin-display.php:62
+msgid "Matches found: "
+msgstr "No se encontraron coincidencias"
+
+#: admin/partials/rc-suite-admin-display.php:65
+msgid "Number of replacements done: "
+msgstr "Número de reemplazos realizados: "
+
+#: admin/partials/rc-suite-admin-display.php:69
+msgid "Unrecognized message"
+msgstr "Mensaje no reconocido"
+
+#: admin/partials/rc-suite-admin-display.php:218
+msgid "Configura el plugin de moda."
+msgstr "Configura el plugin de moda."
+
+#: admin/partials/rc-suite-admin-display.php:240
+msgid "General"
+msgstr "General"
+
+#: admin/partials/rc-suite-admin-display.php:338
+#: admin/partials/rc-suite-admin-display.php:342
+#: admin/partials/rc-suite-admin-display.php:348
+msgid "Hide Price Range for WooCommerce Variable Products"
+msgstr "Ocultar rango de precios para productos variables de WooCommerce"
+
+#: admin/partials/rc-suite-admin-display.php:346
+#: admin/partials/rc-suite-admin-display.php:362
+#: admin/partials/rc-suite-admin-display.php:378
+msgid "Activate"
+msgstr "Activar"
+
+#: admin/partials/rc-suite-admin-display.php:354
+#: admin/partials/rc-suite-admin-display.php:358
+msgid "Collapsable mobile menu"
+msgstr "Menú móvil plegable"
+
+#: admin/partials/rc-suite-admin-display.php:364
+msgid "Use collapsable menu in mobile view"
+msgstr "Usar menú plegable en la vista móvil"
+
+#: admin/partials/rc-suite-admin-display.php:370
+#: admin/partials/rc-suite-admin-display.php:374
+msgid "4/2 Product columns on desktop/mobile"
+msgstr "4/2 Columnas de productos en equipos de escritorio/móviles"
+
+#: admin/partials/rc-suite-admin-display.php:380
+msgid "4 and 2 products colums view on desktop and mobile"
+msgstr "4 y 2 productos colums vista en el escritorio y móvil"
+
+#: admin/partials/rc-suite-admin-display.php:405
+#: admin/partials/rc-suite-admin-display.php:424
+msgid "Replacer"
+msgstr "Replacer"
+
+#: admin/partials/rc-suite-admin-display.php:425
+msgid "Manual"
+msgstr "Manual"
+
+#: admin/partials/rc-suite-admin-display.php:436
+msgid "Table name"
+msgstr "Nombre de la Tabla"
+
+#: admin/partials/rc-suite-admin-display.php:444
+msgid "Field name"
+msgstr "Nombre del campo"
+
+#: admin/partials/rc-suite-admin-display.php:452
+msgid "Source string"
+msgstr "Cadena de origen"
+
+#: admin/partials/rc-suite-admin-display.php:460
+#: admin/partials/rc-suite-admin-html.php:21
+msgid "Replacement string"
+msgstr "Cadena de reemplazo"
+
+#: admin/partials/rc-suite-admin-display.php:471
+msgid "Test"
+msgstr "Prueba"
+
+#: admin/partials/rc-suite-admin-display.php:472
+msgid "Replace"
+msgstr "Reemplazar"
+
+#: admin/partials/rc-suite-admin-display.php:480
+msgid "By file"
+msgstr "Por fichero"
+
+#: admin/partials/rc-suite-admin-display.php:491
+msgid "Upload file"
+msgstr "Subir archivo"
+
+#: admin/partials/rc-suite-admin-display.php:495
+msgid "Upload CSV"
+msgstr "Subir CSV"
+
+#: admin/partials/rc-suite-admin-display.php:510
+msgid "Choose File"
+msgstr "Elija el archivo"
+
+#: admin/partials/rc-suite-admin-display.php:513
+msgid "Choose a file to process"
+msgstr "Elija un archivo para procesar"
+
+#: admin/partials/rc-suite-admin-display.php:537
+msgid "Test file"
+msgstr "Archivo de prueba"
+
+#: admin/partials/rc-suite-admin-display.php:538
+msgid "Process file"
+msgstr "Archivo de proceso"
+
+#: admin/partials/rc-suite-admin-display.php:539
+msgid "Delete file"
+msgstr "Borrar archivo"
+
+#: admin/partials/rc-suite-admin-html.php:13
+msgid "File structure"
+msgstr "Estructura de archivos"
+
+#: admin/partials/rc-suite-admin-html.php:18
+#: admin/partials/rc-suite-admin-html.php:63
+#: admin/partials/rc-suite-admin-html.php:105
+msgid "Table"
+msgstr "Tabla"
+
+#: admin/partials/rc-suite-admin-html.php:19
+#: admin/partials/rc-suite-admin-html.php:64
+#: admin/partials/rc-suite-admin-html.php:106
+msgid "Field"
+msgstr "Campo"
+
+#: admin/partials/rc-suite-admin-html.php:20
+#: admin/partials/rc-suite-admin-html.php:65
+#: admin/partials/rc-suite-admin-html.php:107
+msgid "String to replace"
+msgstr "Cadena para reemplazar"
+
+#: admin/partials/rc-suite-admin-html.php:58
+msgid "File test result"
+msgstr "Resultado de la prueba de archivo"
+
+#: admin/partials/rc-suite-admin-html.php:66
+msgid "Matches"
+msgstr "Partidos"
+
+#: admin/partials/rc-suite-admin-html.php:100
+msgid "Replacements done"
+msgstr "Reemplazos realizados"
+
+#: admin/partials/rc-suite-admin-html.php:108
+msgid "Replaces"
+msgstr "Reemplazos"
+
+#: public/class-rc-suite-public.php:100
 msgid "Hello"
 msgstr "Hola"
 
-#: public/class-rc-suite-public.php:140
+#: public/class-rc-suite-public.php:100
 msgid "Log out"
-msgstr "Salir"
+msgstr "Cerrar sesión"
 
-#: public/class-rc-suite-public.php:146
+#: public/class-rc-suite-public.php:106
 msgid "Login"
-msgstr "Acceder"
+msgstr "Iniciar sesión"
+
+#: public/class-rc-suite-public.php:130 public/class-rc-suite-public.php:137
+#, php-format
+msgid "Desde %1$s"
+msgstr "Desde %1$s"
 
 #. Plugin Name of the plugin/theme
 msgid "RC Suite"
-msgstr ""
+msgstr "RC Suite"
 
 #. Plugin URI of the plugin/theme
 msgid "https://www.raulcarrion.com/plugins/rc-suite/"
-msgstr ""
+msgstr "https://www.raulcarrion.com/plugins/rc-suite/"
 
 #. Description of the plugin/theme
 msgid "Funcionalidades para mejorar tu sitio web."
-msgstr ""
+msgstr "Funcionalidades para mejorar tu sitio web."
 
 #. Author of the plugin/theme
 msgid "Raúl Carrión"
-msgstr ""
+msgstr "Raúl Carrión"
 
 #. Author URI of the plugin/theme
 msgid "https://www.raulcarrion.com/"
-msgstr ""
+msgstr "https://www.raulcarrion.com/"

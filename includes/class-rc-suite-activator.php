@@ -27,5 +27,4 @@ class Rc_Suite_Activator {
 			mkdir(PLUGIN_PATH_UPLOAD_FILES);
 		}
 	}
-
 }
