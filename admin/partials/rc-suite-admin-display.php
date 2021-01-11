@@ -332,8 +332,8 @@ function rc_suite_general_content() {
 	     					<p class="description">Desactiva el tipo de dato "Proyectos" que se genera automática al activar el tema DIVI.</p>
 	     				</fieldset>
 	     			</td>
-				 </tr>
-				 <!-- HIDE PRICE RANGE	!-->
+				</tr>
+				<!-- HIDE PRICE RANGE	!-->
 				<tr valign="top">
 	     			<th scope="row" class="titledesc"><?php _e("Hide Price Range for WooCommerce Variable Products","rc-suite") ?></th>
 	     			<td class="forminp forminp-checkbox">
@@ -348,9 +348,9 @@ function rc_suite_general_content() {
 	     					<p class="description"><?php _e("Hide Price Range for WooCommerce Variable Products","rc-suite"); ?></p>
 	     				</fieldset>
 	     			</td>
-				 </tr>
-				 <!-- MEGAMENU MOBILE COLAPSABLE	!-->
-				 <tr valign="top">
+				</tr>
+				<!-- MEGAMENU MOBILE COLAPSABLE	!-->
+				<tr valign="top">
 	     			<th scope="row" class="titledesc"><?php _e("Collapsable mobile menu","rc-suite") ?></th>
 	     			<td class="forminp forminp-checkbox">
 	     				<fieldset>
@@ -364,9 +364,9 @@ function rc_suite_general_content() {
 	     					<p class="description"><?php _e("Use collapsable menu in mobile view","rc-suite"); ?></p>
 	     				</fieldset>
 	     			</td>
-				 </tr>
-				 <!-- 4_2 Product Columns 	!-->
-				 <tr valign="top">
+				</tr>
+				<!-- 4_2 Product Columns 	!-->
+				<tr valign="top">
 	     			<th scope="row" class="titledesc"><?php _e("4/2 Product columns on desktop/mobile","rc-suite") ?></th>
 	     			<td class="forminp forminp-checkbox">
 	     				<fieldset>
@@ -381,17 +381,91 @@ function rc_suite_general_content() {
 	     				</fieldset>
 	     			</td>
 	     		</tr>
+				<!-- MOBILE MENU CENTERED 	!-->
+				<tr valign="top">
+	     			<th scope="row" class="titledesc"><?php _e("Enable search on mobile for Divi centered","rc-suite") ?></th>
+	     			<td class="forminp forminp-checkbox">
+	     				<fieldset>
+	     					<legend class="screen-reader-text">
+	     						<span><?php _e("4/2 Product columns on desktop/mobile","rc-suite") ?>
+	     					</legend>
+	     					<label for="rcsu_mobile_search_centered_enabled">
+	     						<input type="checkbox" name="rcsu_mobile_search_centered_enabled" id="rcsu_mobile_search_centered_enabled" value="1" <?php if(get_option('rcsu_mobile_search_centered_enabled')){ ?>checked="checked" <?php } ?>>
+	     						<strong><?php _e("Activate","rc-suite") ?></strong>
+	     					</label>
+	     					<p class="description"><?php _e("Enable search on mobile for Divi centered and centered inline Logo headers. going to Divi -> Theme Customizer -> Header & Navigation -> Header Elements and check the “Show search icon” checkbox","rc-suite"); ?></p>
+	     				</fieldset>
+	     			</td>
+	     		</tr>
 	     	</tbody>
 	     </table>
 	     <p class="submit">
 	     	<button name="save" class="button-primary" type="submit" value="Guardar los cambios">Guardar los cambios</button>
 	     </p>
 	     <input type="hidden" name="action" value="update" />
-	     <input type="hidden" name="page_options" value="rc_anti_cache_css_enabled,rc_anti_publi_plugins_enabled,rc_login_customer_enabled, rc_parent_css_enabled,rc_divi_projects_disabled_enabled,rcsu_woo_hide_price_range_enabled,rcsu_collapsable_megamenu_enabled,rcsu_4_2_columns_enabled" />
+	     <input type="hidden" name="page_options" value="rc_anti_cache_css_enabled,rc_anti_publi_plugins_enabled,rc_login_customer_enabled, rc_parent_css_enabled,rc_divi_projects_disabled_enabled,rcsu_woo_hide_price_range_enabled,rcsu_collapsable_megamenu_enabled,rcsu_4_2_columns_enabled, rcsu_mobile_search_centered_enabled" />
 	  </form>
 	</div>
 <?php
 }
+
+/*
+* 	Pestaña SEO
+*/
+
+add_action( 'rc_suite_settings_tab', 'rc_suite_seo', 1 );
+
+function rc_suite_seo(){
+	global $sd_active_tab;
+	?>
+		<a class="nav-tab <?php echo $sd_active_tab == 'seo' || '' ? 'nav-tab-active' : ''; ?>" href="<?php echo admin_url( 'admin.php?page=rc-suite&tab=seo' ); ?>"><?php _e("Seo","rc-suite");?></a>
+	<?php
+}
+
+/*
+* 	Contenido
+*/
+
+add_action( 'rc_suite_settings_content', 'rc_suite_seo_content' );
+
+function rc_suite_seo_content() {
+	global $sd_active_tab;
+	if ( '' || 'seo' != $sd_active_tab )
+		return;
+?>
+    <div class="wrap">
+	  <h2><?php _e("Seo", "rc-suite") ?></h2>
+	  <form method="post" action="options.php">
+	     <?php wp_nonce_field('update-options') ?>
+	     <table class="form-table">
+	     	<tbody>
+	     		<tr valign="top">
+	     			<th scope="row" class="titledesc"><?php _e("Blog post's under /blog/ address","rc-suite") ?></th>
+	     			<td class="forminp forminp-checkbox">
+	     				<fieldset>
+	     					<legend class="screen-reader-text">
+	     						<span><?php _e("Force blog post's under /blog/ address","rc-suite") ?></span>
+	     					</legend>
+	     					<label for="rcsu_seo_blog_enabled">
+	     						<input type="checkbox" name="rcsu_seo_blog_enabled" id="rcsu_seo_blog_enabled" value="1" <?php if(get_option('rcsu_seo_blog_enabled')==1){ ?>checked="checked" <?php } ?>>
+	     						<strong><?php _e("Activate","rc-suite") ?></strong>
+	     					</label>
+	     					<p class="description"><?php _e("Force blog post's address to appear under /blog/ address","rc-suite") ?></p>
+	     				</fieldset>
+	     			</td>
+	     		</tr>
+	     	</tbody>
+	     </table>
+	     <p class="submit">
+	     	<button name="save" class="button-primary" type="submit" value="Guardar los cambios"><?php _e("Save changes","rc-suite") ?></button>
+	     </p>
+	     <input type="hidden" name="action" value="update" />
+	     <input type="hidden" name="page_options" value="rcsu_seo_blog_enabled" />
+	  </form>
+	</div>
+<?php
+}
+
 
 /*
 * 	Pestaña REEMPLAZADOR
@@ -414,6 +488,8 @@ add_action( 'rc_suite_settings_content', 'rc_suite_reemplazador_content' );
 
 function rc_suite_reemplazador_content() {
 	global $sd_active_tab;
+	global $wpdb;
+	
 	// Obtenemos los datos del ultimo reemplazador
 	$reemplazador = new Rc_Suite_Reemplazador(unserialize(get_option("rc-suite-reemplazos", "")));
 
@@ -431,6 +507,14 @@ function rc_suite_reemplazador_content() {
 				<?php 	// Se añade un campo nonce para probarlo más adelante cuando validemos
 						wp_nonce_field( 'replacer_manual', 'rcsu-suite-nonce' ); 
 				?>
+				<tr>
+					<th scope="row" class="titledesc">
+						<label id="label_rcsu-prefix" for="rcsu-prefix"><?php _e("Prefix","rc-suite");?></label>
+					</th>
+					<td class="forminp forminp-select">
+						<input type="text" id="rcsu-prefix" name="rcsu-prefix" disabled value="<?php echo $wpdb->prefix ?>" />
+					</td>
+				</tr>
 				<tr>
 					<th scope="row" class="titledesc">
 						<label id="label_rcsu-table-name" for="rcsu-table-name"><?php _e("Table name","rc-suite");?></label>
@@ -544,5 +628,57 @@ function rc_suite_reemplazador_content() {
 			</table>
 			
 	  </form>
+
+<?php
+}
+
+/*
+* 	Pestaña TAGS
+*/
+
+add_action( 'rc_suite_settings_tab', 'tags', 1 );
+
+function tags(){
+	global $sd_active_tab;
+	?>
+		<a class="nav-tab <?php echo $sd_active_tab == 'tags' || '' ? 'nav-tab-active' : ''; ?>" href="<?php echo admin_url( 'admin.php?page=rc-suite&tab=tags' ); ?>"><?php _e("Tags","rc-suite");?></a>
+	<?php
+}
+
+/*
+* 	Contenido
+*/
+
+add_action( 'rc_suite_settings_content', 'tags_content' );
+
+function tags_content() {
+	global $sd_active_tab;
+	
+	if ( '' || 'tags' != $sd_active_tab )
+		return;
+
+	// Obtenemos los datos del ultimo tags
+	$tags = get_tags(array(
+				'taxonomy' => 'post_tag',
+				'orderby' => 'name',
+				'hide_empty' => false // for development
+	 		 ));
+?>
+    <div class="wrap">
+	  <h2><?php _e("Tags", "rc-suite"); ?></h2>
+	  <h3><?php _e("Listado", "rc-suite"); ?></h3>
+	  <div>
+		  <?php
+				foreach ($tags as $tag)
+				{	?>
+
+				<?php echo $tag->name ?>;<?php echo $tag->count ?><br>	
+
+
+		<?php	}
+
+		  ?>
+	  </div>	 
+
 <?php
 }

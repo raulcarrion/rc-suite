@@ -156,7 +156,7 @@ class Rc_Suite_Reemplazador {
             "SELECT
                 COUNT(".$columna.")
             FROM
-                `{$wpdb->base_prefix}". $tabla ."`
+                `{$wpdb->prefix}". $tabla ."`
             WHERE
                 ".$columna." LIKE %s;",
             '%' . $wpdb->esc_like($cadena_origen) . '%'
@@ -176,7 +176,7 @@ class Rc_Suite_Reemplazador {
 
         return ($wpdb->query($wpdb->prepare(
             
-            "UPDATE `{$wpdb->base_prefix}". $tabla ."`
+            "UPDATE `{$wpdb->prefix}". $tabla ."`
             SET ".$columna." = REPLACE(".$columna.", '$cadena_origen', '$cadena_destino')
             WHERE ".$columna." LIKE %s;", 
             '%' . $wpdb->esc_like($cadena_origen) . '%'

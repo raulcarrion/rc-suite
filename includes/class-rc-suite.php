@@ -117,6 +117,7 @@ class Rc_Suite {
 
 		if(get_option('rc_divi_projects_disabled_enabled')==1)
 			$this->loader->add_action( 'et_project_posttype_args', $plugin_admin, 'rc_divi_projects_disabled',10,1 );
+
 	}
 
 	/**
@@ -150,6 +151,13 @@ class Rc_Suite {
 		{
 			$this->loader->add_filter( 'woocommerce_variable_sale_price_html', $plugin_public, 'rcsu_hide_variable_product_price', 10, 2 );
 			$this->loader->add_filter( 'woocommerce_variable_price_html', $plugin_public ,'rcsu_hide_variable_product_price', 10, 2 );		
+		}
+
+		// SEO - BLOG
+		if(get_option('rcsu_seo_blog_enabled'))
+		{
+			$this->loader->add_action( 'generate_rewrite_rules', $plugin_public, 'rcsu_seo_blog_posts_add_rewrite_rules',2 );
+			$this->loader->add_filter( 'post_link', $plugin_public ,'rcsu_seo_blog_posts_change_blog_links', 10, 2 );		
 		}
 	}
 

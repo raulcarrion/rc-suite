@@ -44,8 +44,8 @@ class Rc_Suite_Admin {
 		// de output HTML, esten disponibles en las llamadas AJAX
 		require_once plugin_dir_path( __FILE__ ) . '/partials/rc-suite-admin-html.php';
 
-		$this->plugin_name = $plugin_name;
-		$this->version = $version;
+		$this->plugin_name  = $plugin_name;
+		$this->version 		= $version;
 	}
 
 	/**
@@ -222,4 +222,6 @@ class Rc_Suite_Admin {
 		));
 
 	}
+	
 }
+

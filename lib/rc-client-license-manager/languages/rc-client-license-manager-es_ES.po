@@ -1,0 +1,258 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: RC Cliente License Manager\n"
+"POT-Creation-Date: 2020-10-22 17:01+0200\n"
+"PO-Revision-Date: 2020-10-22 17:11+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: class-rc-client-license-manager.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: class-rc-client-license-manager.php:189
+#: class-rc-client-license-manager.php:274
+#: class-rc-client-license-manager.php:581
+#: partials/rc-client-license-manager-banner.php:27
+msgid "License key status is unknow"
+msgstr "El estado de la clave de licencia es desconocido"
+
+#: class-rc-client-license-manager.php:203
+msgid "Incorrect data. Check license key."
+msgstr "Datos incorrectos. Compruebe la clave de licencia."
+
+#: class-rc-client-license-manager.php:206
+msgid "The license key is invalid!"
+msgstr "¡La clave de licencia no es válida!"
+
+#: class-rc-client-license-manager.php:209
+msgid ""
+"Order status is not completed! Please complete order before activating "
+"product."
+msgstr ""
+"¡El estado del pedido no se ha completado! Por favor complete el pedido "
+"antes de activar el producto."
+
+#: class-rc-client-license-manager.php:212
+msgid "Invalid licence key or licence key inactive"
+msgstr "Clave de licencia no válida o clave de licencia inactiva"
+
+#: class-rc-client-license-manager.php:215
+msgid "Reached maximum allowable domains!"
+msgstr "¡Alcanzado el máximo de dominios permitidos!"
+
+#: class-rc-client-license-manager.php:218
+msgid "Unexpected error! : "
+msgstr "¡Error inesperado! : "
+
+#: class-rc-client-license-manager.php:252
+#: class-rc-client-license-manager.php:302
+#: class-rc-client-license-manager.php:347
+msgid ""
+"Unexpected Error calling activation server! The activation did not success."
+msgstr ""
+"Error inesperado al llamar al servidor de activación! La activación no tuvo "
+"éxito."
+
+#: class-rc-client-license-manager.php:264
+msgid "License key is activate"
+msgstr "La clave de licencia está activa"
+
+#: class-rc-client-license-manager.php:269
+#: class-rc-client-license-manager.php:356
+msgid "License key is expired"
+msgstr "La clave de licencia ha caducado"
+
+#: class-rc-client-license-manager.php:290
+msgid "Error: Invalid licence key or licence not active for domain."
+msgstr ""
+"Error: La clave de licencia es inválida o no está activa para el dominio."
+
+#: class-rc-client-license-manager.php:294
+msgid "The activation did not success: "
+msgstr "La activación no tuvo éxito: "
+
+#: class-rc-client-license-manager.php:308
+#: class-rc-client-license-manager.php:388
+msgid "License key not found"
+msgstr "Clave de licencia no encontrada"
+
+#: class-rc-client-license-manager.php:314
+msgid "License key not found! The activation did not success."
+msgstr ""
+"¡No se ha encontrado la clave de licencia! La activación no tuvo éxito."
+
+#: class-rc-client-license-manager.php:369
+msgid "Error: Invalid licence key or licence key already inactive."
+msgstr "Error: La clave de licencia no es válida o ya está inactiva."
+
+#: class-rc-client-license-manager.php:373
+msgid "The deactivation did not success: "
+msgstr "La desactivación no tuvo éxito: "
+
+#: class-rc-client-license-manager.php:382
+msgid ""
+"Unexpected Error calling deactivation server! The deactivation did not "
+"success."
+msgstr ""
+"Error inesperado al llamar al servidor de desactivación! La desactivación no "
+"tuvo éxito."
+
+#: class-rc-client-license-manager.php:393
+msgid "License key not found! The deactivation did not success."
+msgstr ""
+"¡No se ha encontrado la clave de licencia! La desactivación no tuvo éxito."
+
+#: class-rc-client-license-manager.php:442
+#: class-rc-client-license-manager.php:496
+msgid "Unexpected Error checking license key status."
+msgstr "Error inesperado al comprobar el estado de la clave de licencia."
+
+#: class-rc-client-license-manager.php:548
+msgid "License key is active but has expired"
+msgstr "La clave de licencia está activa pero ha caducado"
+
+#: class-rc-client-license-manager.php:551
+msgid "License key is active"
+msgstr "La clave de licencia está activa"
+
+#: class-rc-client-license-manager.php:554
+msgid "License key is inactive"
+msgstr "La clave de licencia está inactiva"
+
+#: class-rc-client-license-manager.php:557
+msgid "License key is invalid"
+msgstr "La clave de licencia no es válida"
+
+#: class-rc-client-license-manager.php:560
+msgid "License key is deactivated"
+msgstr "La clave de licencia está desactivada"
+
+#: class-rc-client-license-manager.php:563
+msgid "License key is blocked"
+msgstr "La clave de licencia está bloqueada"
+
+#: class-rc-client-license-manager.php:566
+msgid ""
+"License key is active but deactivated to this domain, try activate it again."
+msgstr ""
+"La clave de licencia está activa pero desactivada en este dominio, intente "
+"activarla de nuevo."
+
+#: class-rc-client-license-manager.php:569
+msgid "Licence Key does not match this product."
+msgstr "La clave de licencia no coincide con este producto."
+
+#: class-rc-client-license-manager.php:572
+msgid "Invalid Product Unique ID."
+msgstr "ID único de producto no válido."
+
+#: class-rc-client-license-manager.php:575
+msgid ""
+"License key is inactive. Please complete order before activating product."
+msgstr ""
+"La clave de licencia está inactiva. Por favor complete el pedido antes de "
+"activar el producto."
+
+#: class-rc-client-license-manager.php:621
+msgid "License key status unknow"
+msgstr "El estado de la clave de licencia es desconocido"
+
+#: class-rc-client-license-manager.php:801
+msgid "License key activated successfully"
+msgstr "Clave de licencia activada correctamente"
+
+#: class-rc-client-license-manager.php:807
+msgid "Error activating license: Empty License key"
+msgstr "Error al activar la licencia: clave de licencia vacía"
+
+#: class-rc-client-license-manager.php:810
+msgid "Error activating license: "
+msgstr "Error al activar la licencia: "
+
+#: class-rc-client-license-manager.php:816
+msgid "License key was deactivated successfully"
+msgstr "La clave de licencia se desactivó correctamente"
+
+#: class-rc-client-license-manager.php:822
+msgid "Error deactivating license: Empty License key"
+msgstr "Error al desactivar la licencia: clave de licencia vacía"
+
+#: class-rc-client-license-manager.php:825
+msgid "Error deactivating license: "
+msgstr "Error al desactivar la licencia: "
+
+#: class-rc-client-license-manager.php:830
+msgid "Unrecognized message: "
+msgstr "Mensaje no reconocido: "
+
+#: partials/rc-client-license-manager-banner.php:9
+msgid "Plugin license has expired!"
+msgstr "¡La licencia del plugin ha caducado!"
+
+#: partials/rc-client-license-manager-banner.php:10
+msgid "Plugin updating is disabled! Extend your license now!"
+msgstr ""
+"¡La actualización del plugin está deshabilitada! ¡Amplía tu licencia ahora!"
+
+#: partials/rc-client-license-manager-banner.php:19
+msgid "License key is not active"
+msgstr "La clave de licencia no está activa"
+
+#: partials/rc-client-license-manager-banner.php:20
+#: partials/rc-client-license-manager-banner.php:28
+msgid "Please activate you license key"
+msgstr "Active la clave de licencia"
+
+#: partials/rc-client-license-manager-license-form.php:15
+#: partials/rc-client-license-manager-license-form.php:27
+#: partials/rc-client-license-manager-tabs.php:4
+msgid "License Key"
+msgstr "Clave de licencia"
+
+#: partials/rc-client-license-manager-license-form.php:17
+msgid "Here you can manage your license key."
+msgstr "Aquí puedes administrar tu clave de licencia."
+
+#: partials/rc-client-license-manager-license-form.php:35
+msgid "Status"
+msgstr "Estado"
+
+#: partials/rc-client-license-manager-license-form.php:49
+msgid "Activate License Key"
+msgstr "Activar clave de licencia"
+
+#: partials/rc-client-license-manager-license-form.php:56
+msgid "Deactivate License Key"
+msgstr "Desactivar clave de licencia"
+
+#. Plugin Name of the plugin/theme
+msgid "RC Cliente License Manager"
+msgstr "RC Cliente Gestion de Lincencia"
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.raulcarrion.com/shop/rc-client-license-manager/"
+msgstr "https://www.raulcarrion.com/shop/rc-client-license-manager/"
+
+#. Description of the plugin/theme
+msgid "Library to include a client to manage license"
+msgstr "Librería para administrar la clave de licencia"
+
+#. Author of the plugin/theme
+msgid "Raúl Carrión"
+msgstr "Raúl Carrión"
+
+#. Author URI of the plugin/theme
+msgid "https://www.raulcarrion.com/"
+msgstr "https://www.raulcarrion.com/"

@@ -1,0 +1,25 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+ /*
+    LICENCIA
+*/
+
+div.license_notice
+{
+    background-color: powderblue;
+    border: 2px solid paleturquoise;
+    width:75%;
+    padding: 5px;
+    background-image: url("../media/license1.png");
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+div.license_notice p
+{
+    margin-left: 120px; 
+    
+}

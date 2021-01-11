@@ -55,6 +55,11 @@ class Rc_Suite_Public {
 		// Collapsable MENU
 		if(get_option('rcsu_collapsable_megamenu_enabled'))
 			wp_enqueue_style( $this->plugin_name . "_mobile_menu", plugin_dir_url( __FILE__ ) . 'css/rc-suite-mobile-menu.css',array() , $this->version, false  );
+
+		// Mobile MENU Centered
+		if(get_option('rcsu_mobile_search_centered_enabled'))
+			wp_enqueue_style( $this->plugin_name . "_mobile_centerd", plugin_dir_url( __FILE__ ) . 'css/rc-suite-mobile-centered.css',array() , $this->version, false  );
+	
 	}
 
 	/**
@@ -124,23 +129,60 @@ class Rc_Suite_Public {
 
 	function rcsu_hide_variable_product_price( $v_price, $v_product ) {
 		
-		// Product Price
+		// Product Prices MAX y MIN
+		$prod_prices    = array( $v_product->get_variation_price( 'min', true ), $v_product->get_variation_price( 'max', true ) );
+		$regular_prices = array( $v_product->get_variation_regular_price( 'min', true ), $v_product->get_variation_regular_price( 'max', true ) );
+		
+		sort( $regular_prices );
+
+		if ( $prod_prices[0] !== $regular_prices[0] ) 
+			$prod_price = sprintf(__('Desde <del>%s</del><ins>%s</ins> ' . $v_product->get_price_suffix(), 'woocommerce'), wc_price( $regular_prices[0] ), wc_price( $prod_prices[0] ));
+		else
+			if ($prod_prices[0]!==$prod_prices[1])
+				$prod_price = sprintf(__('Desde %1$s ' . $v_product->get_price_suffix(), 'woocommerce'), wc_price( $prod_prices[0] ));
+			else
+				$prod_price = wc_price( $prod_prices[0] );
+		
+		/*// Product Price
 		$prod_prices = array( $v_product->get_variation_price( 'min', true ), 
 									$v_product->get_variation_price( 'max', true ) );
-		$prod_price = $prod_prices[0]!==$prod_prices[1] ? sprintf(__('Desde %1$s', 'woocommerce'), 
+		$prod_price = $prod_prices[0]!==$prod_prices[1] ? sprintf(__('Desde %1$s '. $v_product->get_price_suffix() , 'woocommerce'), 
 								wc_price( $prod_prices[0] ) ) : wc_price( $prod_prices[0] );
 		
 		// Regular Price
 		$regular_prices = array( $v_product->get_variation_regular_price( 'min', true ), 
 									$v_product->get_variation_regular_price( 'max', true ) );
 		sort( $regular_prices );
-		$regular_price = $regular_prices[0]!==$regular_prices[1] ? sprintf(__('Desde %1$s','woocommerce')
+		$regular_price = $regular_prices[0]!==$regular_prices[1] ? sprintf(__('Desde %1$s' . $v_product->get_price_suffix(),'woocommerce')
 								, wc_price( $regular_prices[0] ) ) : wc_price( $regular_prices[0] );
 		
 		if ( $prod_price !== $regular_price ) {
 		$prod_price = '<del>'.$regular_price.$v_product->get_price_suffix() . '</del> <ins>' . 
 								$prod_price . $v_product->get_price_suffix() . '</ins>';
-		}
+		}*/
+
 		return $prod_price;
+	}
+
+	/**
+	 * SEO - Blogs - Obliga a que los posts del blog aparezcan bajo /blog/
+	 */
+	public function rcsu_seo_blog_posts_add_rewrite_rules( $wp_rewrite )
+	{
+		$new_rules = [
+			'blog/page/([0-9]{1,})/?$' => 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1),
+			'blog/(.+?)/?$' => 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1),
+		];
+		$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
+		return $wp_rewrite->rules;
+	}
+	
+	public function rcsu_seo_blog_posts_change_blog_links($post_link, $id=0)
+	{
+		$post = get_post($id);
+		if( is_object($post) && $post->post_type == 'post'){
+			return home_url('/blog/'. $post->post_name.'/');
+		}
+		return $post_link;
 	}
 }
