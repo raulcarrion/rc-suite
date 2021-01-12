@@ -1,7 +1,7 @@
 /* Enable Search on Mobile for Divi Centered and Centered Inline Logo Headers */
 @media (max-width: 980px) {
     /* make search icon visible */
-    .mobile.et_header_style_centered #et_top_search, 
+    .et_divi_theme.et_header_style_centered #et_top_search, 
     .et_vertical_nav.et_header_style_centered #main-header #et_top_search,
     .et_header_style_split #et_top_search, 
     .et_vertical_nav.et_header_style_split #main-header #et_top_search {
@@ -10,7 +10,7 @@
         z-index: 99999;
     }
     /* align search icon for Centered header */
-    .mobile.et_header_style_centered #et_search_icon:before {
+    .et_divi_theme.et_header_style_centered #et_search_icon:before {
         top: 7px;
         left: -3px;
     }
@@ -20,18 +20,18 @@
         left: -3px;
     }
     /* make search field visible */
-    .mobile.et_header_style_centered .et_search_outer, 
+    .et_divi_theme.et_header_style_centered .et_search_outer, 
     .et_header_style_split .et_search_outer {
         display: block;
     }
     /* set max-width for search form container */
-    .mobile.et_header_style_centered .container.et_search_form_container,
+    .et_divi_theme.et_header_style_centered .container.et_search_form_container,
     .et_header_style_split .container.et_search_form_container.et_pb_search_visible,
     .et_header_style_split .container.et_search_form_container.et_pb_search_form_hidden {
         max-width: 100% !important;
     }
     /* apply in-animation for search form container */
-    .mobile.et_header_style_centered .container.et_search_form_container.et_pb_search_visible,
+    .et_divi_theme.et_header_style_centered .container.et_search_form_container.et_pb_search_visible,
     .et_header_style_split .container.et_search_form_container.et_pb_search_visible {
         z-index: 999;
         -webkit-animation: fadeInTop 1s 1 cubic-bezier(.77,0,.175,1);
@@ -40,9 +40,9 @@
         animation: fadeInTop 1s 1 cubic-bezier(.77,0,.175,1);
     }
     /* apply out-animation for menu bar elements */
-    .mobile.et_header_style_centered .et_pb_menu_hidden #et_search_icon:before, 
-    .mobile.et_header_style_centered .et_pb_menu_hidden .mobile_menu_bar,
-    .mobile.et_header_style_centered .et_pb_menu_hidden .select_page,
+    .et_divi_theme.et_header_style_centered .et_pb_menu_hidden #et_search_icon:before, 
+    .et_divi_theme.et_header_style_centered .et_pb_menu_hidden .mobile_menu_bar,
+    .et_divi_theme.et_header_style_centered .et_pb_menu_hidden .select_page,
     .et_header_style_split .et_pb_menu_hidden #et_search_icon:before, 
     .et_header_style_split .et_pb_menu_hidden .mobile_menu_bar,
     .et_header_style_split .et_pb_menu_hidden .select_page {
@@ -53,7 +53,7 @@
         animation: fadeOutBottom 1s 1 cubic-bezier(.77,0,.175,1);
     }
     /* apply in-animation for "Select Page" container */
-    .mobile.et_header_style_centered .et_pb_menu_visible .select_page,
+    .et_divi_theme.et_header_style_centered .et_pb_menu_visible .select_page,
     .et_header_style_split .et_pb_menu_visible .select_page {
         opacity: 1;
         -webkit-animation: fadeInBottom 1s 1 cubic-bezier(.77,0,.175,1);
@@ -62,19 +62,19 @@
         animation: fadeInBottom 1s 1 cubic-bezier(.77,0,.175,1);
     }
     /* adjust close search icon horizontal positioning */
-    .mobile.et_header_style_centered span.et_close_search_field,
+    .et_divi_theme.et_header_style_centered span.et_close_search_field,
     .et_header_style_split span.et_close_search_field {
         right: 5px;
     }
     /* adjust search form input horizontal positioning */
-    .mobile.et_header_style_centered .et-search-form input,
+    .et_divi_theme.et_header_style_centered .et-search-form input,
     .et_header_style_split .et-search-form input {
        left: 10px;
        right: auto;
     }
     /* adjust search form input and close icon vertical positioning */
-    .mobile.et_header_style_centered .et-search-form input, 
-    .mobile.et_header_style_centered span.et_close_search_field,
+    .et_divi_theme.et_header_style_centered .et-search-form input, 
+    .et_divi_theme.et_header_style_centered span.et_close_search_field,
     .et_vertical_nav.et_header_style_centered .et-search-form input, 
     .et_vertical_nav.et_header_style_centered span.et_close_search_field,
     .et_header_style_split .et-search-form input, 
@@ -82,19 +82,19 @@
         top: unset !important;
         line-height: 2em;
     }
-    .mobile.et_header_style_centered span.et_close_search_field,
+    .et_divi_theme.et_header_style_centered span.et_close_search_field,
     .et_header_style_split span.et_close_search_field  {
         bottom: 20px;
     }
     /* set width values for search form */
-    .mobile.et_header_style_centered .et-search-form,
+    .et_divi_theme.et_header_style_centered .et-search-form,
     .et_header_style_split .et-search-form {
         width: 100% !important;
         max-width: 100% !important;
         bottom: 20px;
     }
     /* adjust close search icon top margin */
-    .mobile.et_header_style_centered .et_close_search_field:after,
+    .et_divi_theme.et_header_style_centered .et_close_search_field:after,
     .et_header_style_split .et_close_search_field:after {
         margin-top: -2px;
     }
