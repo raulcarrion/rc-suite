@@ -31,11 +31,14 @@ No
 
 == Changelog ==
 
-= 1.0 =
-* CSS para child themes
-* Anticaché CSS
-* Anti publi de plugins
-* Acceso clientes para WooCommerce
+= 1.1.5 =
+    - Add shortcode option
+    - Fix between Divi and Blog rewrite rules
+ 
+
+= 1.1.4 =
+    - Fix de un error en la etiqueta "desde" en los precios variables
+
 
 
 == Upgrade Notice ==
