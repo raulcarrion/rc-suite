@@ -450,7 +450,7 @@ function rc_suite_seo_content() {
 	     						<input type="checkbox" name="rcsu_seo_blog_enabled" id="rcsu_seo_blog_enabled" value="1" <?php if(get_option('rcsu_seo_blog_enabled')==1){ ?>checked="checked" <?php } ?>>
 	     						<strong><?php _e("Activate","rc-suite") ?></strong>
 	     					</label>
-	     					<p class="description"><?php _e("Force blog post's address to appear under /blog/ address","rc-suite") ?></p>
+	     					<p class="description"><?php _e("Force blog post's address to appear under /blog/ address. Remember to save permalinks after check/uncheck this option.","rc-suite") ?></p>
 	     				</fieldset>
 	     			</td>
 	     		</tr>

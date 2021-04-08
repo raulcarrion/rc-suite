@@ -143,7 +143,12 @@ class Rc_Suite {
 
 		if(get_option('rc_login_customer_enabled')==1)
 		{
+			add_shortcode( 'rc_suite_login_customer', array( $plugin_public, 'rc_login_customer_sc' ));
 			$this->loader->add_action('wp_nav_menu_items', $plugin_public, 'rc_login_customer',10,2 );
+		}
+		else
+		{
+			remove_shortcode( 'rc_suite_login_customer' );
 		}
 
 		// 	Ocultar el price range de woocommerce

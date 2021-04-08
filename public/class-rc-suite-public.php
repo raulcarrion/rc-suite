@@ -91,7 +91,18 @@ class Rc_Suite_Public {
     	return $content;
 	}
 
+	public function rc_login_customer_sc( $args ) {
 
+		global $current_user;
+
+		if (is_user_logged_in())
+			$return = '<li id="menu-item-rc" class="menu-item"><a class="rc-mi-cuenta" href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">' . __('Hello', 'rc-suite'). ' ' . $current_user->display_name . '</a> (<a class="salir-link" href="'. wp_logout_url( home_url() ) .'">' . __('Log out', 'rc-suite') . '</a>)</li>';
+		else
+			$return = '<li id="menu-item-rc" class="menu-item"><a href="' . site_url( "/login/" ) . '">' . __('Login', 'rc-suite') . '</a></li>';
+
+		return $return;
+	}
+	
 	public function rc_login_customer( $items, $args ) {
 		/**
 		 * Añade al menú secundiario el enlace a mi cuenta añadiendo el nombre de usuario cuando está logueado.
@@ -141,7 +152,7 @@ class Rc_Suite_Public {
 			if ($prod_prices[0]!==$prod_prices[1])
 				$prod_price = sprintf(__('Desde %1$s ' . $v_product->get_price_suffix(), 'woocommerce'), wc_price( $prod_prices[0] ));
 			else
-				$prod_price = wc_price( $prod_prices[0] );
+				$prod_price = wc_price( $prod_prices[0] ) . $v_product->get_price_suffix();
 		
 		/*// Product Price
 		$prod_prices = array( $v_product->get_variation_price( 'min', true ), 
@@ -180,7 +191,7 @@ class Rc_Suite_Public {
 	public function rcsu_seo_blog_posts_change_blog_links($post_link, $id=0)
 	{
 		$post = get_post($id);
-		if( is_object($post) && $post->post_type == 'post'){
+		if( is_object($post) && $post->post_type == 'post' && !is_admin()){
 			return home_url('/blog/'. $post->post_name.'/');
 		}
 		return $post_link;
