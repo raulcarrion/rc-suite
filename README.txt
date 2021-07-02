@@ -31,6 +31,10 @@ No
 
 == Changelog ==
 
+= 1.1.6 =
+    - Added russian and french translations
+    - Added options for comments box
+
 = 1.1.5 =
     - Add shortcode option
     - Fix between Divi and Blog rewrite rules
