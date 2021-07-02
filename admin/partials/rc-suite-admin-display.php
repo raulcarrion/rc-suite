@@ -397,13 +397,29 @@ function rc_suite_general_content() {
 	     				</fieldset>
 	     			</td>
 	     		</tr>
+				<!-- REMOVE WEB FROM COMMENTS 	!-->
+				<tr valign="top">
+	     			<th scope="row" class="titledesc"><?php _e("Remove web from comment's box","rc-suite") ?></th>
+	     			<td class="forminp forminp-checkbox">
+	     				<fieldset>
+	     					<legend class="screen-reader-text">
+	     						<span><?php _e("4/2 Product columns on desktop/mobile","rc-suite") ?>
+	     					</legend>
+	     					<label for="rcsu_remove_web_comments_enabled">
+	     						<input type="checkbox" name="rcsu_remove_web_comments_enabled" id="rcsu_remove_web_comments_enabled" value="1" <?php if(get_option('rcsu_remove_web_comments_enabled')){ ?>checked="checked" <?php } ?>>
+	     						<strong><?php _e("Activate","rc-suite") ?></strong>
+	     					</label>
+	     					<p class="description"><?php _e("Remove web field in comment's box. Also users won't be able to add clickable links, and HTML code will be show as is.","rc-suite"); ?></p>
+	     				</fieldset>
+	     			</td>
+	     		</tr>
 	     	</tbody>
 	     </table>
 	     <p class="submit">
 	     	<button name="save" class="button-primary" type="submit" value="Guardar los cambios">Guardar los cambios</button>
 	     </p>
 	     <input type="hidden" name="action" value="update" />
-	     <input type="hidden" name="page_options" value="rc_anti_cache_css_enabled,rc_anti_publi_plugins_enabled,rc_login_customer_enabled, rc_parent_css_enabled,rc_divi_projects_disabled_enabled,rcsu_woo_hide_price_range_enabled,rcsu_collapsable_megamenu_enabled,rcsu_4_2_columns_enabled, rcsu_mobile_search_centered_enabled" />
+	     <input type="hidden" name="page_options" value="rc_anti_cache_css_enabled,rc_anti_publi_plugins_enabled,rc_login_customer_enabled, rc_parent_css_enabled,rc_divi_projects_disabled_enabled,rcsu_woo_hide_price_range_enabled,rcsu_collapsable_megamenu_enabled,rcsu_4_2_columns_enabled, rcsu_mobile_search_centered_enabled, rcsu_remove_web_comments_enabled" />
 	  </form>
 	</div>
 <?php

@@ -196,4 +196,37 @@ class Rc_Suite_Public {
 		}
 		return $post_link;
 	}
+
+	/**
+	 * REMOVE WEB FROM COMMENTS 
+	 */
+
+	/* Quitar Web de las notificaciones */
+	public function rc_filter_comment_text( $notify_message, $comment_id ) {
+		return str_replace('URL: ','',$notify_message);
+	}
+
+	/* Quitar web del formulario para comentar */
+	public function rc_disable_url_comment($fields) {
+		unset($fields['url']);
+		return $fields;
+	}
+
+	/* Quitar los enlaces de los nombres de autores de los comentarios*/
+
+	public function rc_disable_comment_author_links( $author_link ){
+		return strip_tags( $author_link );
+	}
+
+	public function rc_comment_post( $incoming_comment ) {
+		$incoming_comment['comment_content'] = htmlspecialchars($incoming_comment['comment_content']);
+		$incoming_comment['comment_content'] = str_replace( "'", '&amp;apos;', $incoming_comment['comment_content'] );
+		return( $incoming_comment );
+	}
+
+	public function rc_comment_display( $comment_to_display ) {
+		$comment_to_display = str_replace( '&amp;apos;', "'", $comment_to_display );
+		return $comment_to_display;
+	}
+
 }

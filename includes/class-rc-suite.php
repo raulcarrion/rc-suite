@@ -164,6 +164,26 @@ class Rc_Suite {
 			$this->loader->add_action( 'generate_rewrite_rules', $plugin_public, 'rcsu_seo_blog_posts_add_rewrite_rules',2 );
 			$this->loader->add_filter( 'post_link', $plugin_public ,'rcsu_seo_blog_posts_change_blog_links', 10, 2 );		
 		}
+
+		// REMOVE WEB FROM COMMENTS
+		if(get_option('rcsu_remove_web_comments_enabled'))
+		{
+			
+			$this->loader->add_filter('comment_moderation_text', $plugin_public,'rc_filter_comment_text', 10, 2 );
+			$this->loader->add_filter('comment_notification_text', $plugin_public,'rc_filter_comment_text', 10, 2 );
+			$this->loader->add_filter('comment_form_default_fields',$plugin_public,'rc_disable_url_comment');
+			$this->loader->add_filter('get_comment_author_link', $plugin_public,'rc_disable_comment_author_links' );
+
+			/* Desactiva los enlaces en el texto de los comentarios */
+			remove_filter('comment_text', 'make_clickable', 9);
+
+			$this->loader->add_filter('preprocess_comment', $plugin_public,'rc_comment_post', '', 1);
+			$this->loader->add_filter('comment_text', $plugin_public,'rc_comment_display', '', 1);
+			$this->loader->add_filter('comment_text_rss', $plugin_public,'rc_comment_display', '', 1);
+			$this->loader->add_filter('comment_excerpt', $plugin_public,'rc_comment_display', '', 1);
+
+
+		}
 	}
 
 	/**
