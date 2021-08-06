@@ -303,6 +303,7 @@ function rc_suite_general_content() {
 	     				</fieldset>
 	     			</td>
 	     		</tr>
+				 <!-- WooCommerce USER	!-->
 	     		<tr valign="top">
 	     			<th scope="row" class="titledesc">Acceso clientes para WooCommerce</th>
 	     			<td class="forminp forminp-checkbox">
@@ -313,8 +314,19 @@ function rc_suite_general_content() {
 	     					<label for="rc_login_customer_enabled">
 	     						<input type="checkbox" name="rc_login_customer_enabled" id="rc_login_customer_enabled" value="1" <?php if(get_option('rc_login_customer_enabled')==1){ ?>checked="checked" <?php } ?>>
 	     						<strong>Activar</strong>
+								 <select id="rc_suite_woo_menu" name="rc_suite_woo_menu">
+								<?php
+								$saved_menu = get_option('rc_suite_woo_menu');
+								foreach (wp_get_nav_menus() as $menu): ?>
+
+									<option value="<?php echo $menu->term_id ?>" <?php echo ($menu->term_id == $saved_menu ? 'selected="selected"': "") ?> ><?php echo $menu->name ?></option>
+
+								<?php
+								endforeach;
+								?>
+								</select>
 	     					</label>
-	     					<p class="description">Añade en el menú secundario el acceso al área de clientes, mostrando el nombre de usuario cuando está logueado.</p>
+	     					<p class="description">Añade en el menú selecionado el acceso al área de clientes, mostrando el nombre de usuario cuando está logueado.</p>
 	     				</fieldset>
 	     			</td>
 	     		</tr>
@@ -419,7 +431,7 @@ function rc_suite_general_content() {
 	     	<button name="save" class="button-primary" type="submit" value="Guardar los cambios">Guardar los cambios</button>
 	     </p>
 	     <input type="hidden" name="action" value="update" />
-	     <input type="hidden" name="page_options" value="rc_anti_cache_css_enabled,rc_anti_publi_plugins_enabled,rc_login_customer_enabled, rc_parent_css_enabled,rc_divi_projects_disabled_enabled,rcsu_woo_hide_price_range_enabled,rcsu_collapsable_megamenu_enabled,rcsu_4_2_columns_enabled, rcsu_mobile_search_centered_enabled, rcsu_remove_web_comments_enabled" />
+	     <input type="hidden" name="page_options" value="rc_anti_cache_css_enabled,rc_anti_publi_plugins_enabled,rc_login_customer_enabled, rc_parent_css_enabled,rc_divi_projects_disabled_enabled,rcsu_woo_hide_price_range_enabled,rcsu_collapsable_megamenu_enabled,rcsu_4_2_columns_enabled, rcsu_mobile_search_centered_enabled, rcsu_remove_web_comments_enabled, rc_suite_woo_menu" />
 	  </form>
 	</div>
 <?php
@@ -434,7 +446,7 @@ add_action( 'rc_suite_settings_tab', 'rc_suite_seo', 1 );
 function rc_suite_seo(){
 	global $sd_active_tab;
 	?>
-		<a class="nav-tab <?php echo $sd_active_tab == 'seo' || '' ? 'nav-tab-active' : ''; ?>" href="<?php echo admin_url( 'admin.php?page=rc-suite&tab=seo' ); ?>"><?php _e("Seo","rc-suite");?></a>
+		<a class="nav-tab <?php echo $sd_active_tab == 'seo' || '' ? 'nav-tab-active' : ''; ?>" href="<?php echo admin_url( 'admin.php?page=rc-suite&tab=seo' ); ?>"><?php _e("SEO","rc-suite");?></a>
 	<?php
 }
 
@@ -698,3 +710,55 @@ function tags_content() {
 
 <?php
 }
+
+/*
+* 	Pestaña DIVI
+*/
+
+add_action( 'rc_suite_settings_tab', 'rc_suite_divi', 1 );
+
+function rc_suite_divi(){
+	global $sd_active_tab;
+	?>
+		<a class="nav-tab <?php echo $sd_active_tab == 'divi' || '' ? 'nav-tab-active' : ''; ?>" href="<?php echo admin_url( 'admin.php?page=rc-suite&tab=divi' ); ?>"><?php _e("Divi clases","rc-suite");?></a>
+	<?php
+}
+
+/*
+* 	Contenido
+*/
+
+add_action( 'rc_suite_settings_content', 'rc_suite_divi_content' );
+
+function rc_suite_divi_content() {
+	global $sd_active_tab;
+	if ( '' || 'divi' != $sd_active_tab )
+		return;
+?>
+    <div class="wrap">
+		<h2><?php _e("Divi clases", "rc-suite") ?></h2>
+		<table class="wp-list-table widefat fixed striped table-view-list posts">
+			<thead>
+				<tr>
+					<th><?php _e("Tag", "rc-suite") ?></th>
+					<th><?php _e("Module", "rc-suite") ?></th>
+					<th><?php _e("Action", "rc-suite") ?></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>g12-hide-mobile-menu</td>
+					<td><?php _e("Menu", "rc-suite") ?></td>
+					<td><?php _e("Prevent the menu from collapsing on the mobile version.", "rc-suite") ?></td>
+				</tr>
+				<tr>
+					<td>g12-menu-list</td>
+					<td><?php _e("Menu", "rc-suite") ?></td>
+					<td><?php _e("Changes the menu to list mode.", "rc-suite") ?></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+<?php
+}
+

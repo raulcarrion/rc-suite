@@ -182,7 +182,9 @@ class Rc_Suite {
 			$this->loader->add_filter('comment_text_rss', $plugin_public,'rc_comment_display', '', 1);
 			$this->loader->add_filter('comment_excerpt', $plugin_public,'rc_comment_display', '', 1);
 
-
+			if (in_array('wordpress-seo/wp-seo.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+				$this->loader->add_filter( 'wpseo_canonical', $plugin_public , 'yoast_remove_canonical_items', 10, 2 );	
+			}
 		}
 	}
 

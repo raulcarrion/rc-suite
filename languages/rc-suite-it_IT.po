@@ -1,52 +1,877 @@
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: RC Suite\n"
-"POT-Creation-Date: 2020-03-22 12:15+0100\n"
-"PO-Revision-Date: 2020-05-23 16:00+0200\n"
+"POT-Creation-Date: 2021-08-04 18:54+0200\n"
+"PO-Revision-Date: 2021-08-04 18:55+0200\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: rc-suite.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"Last-Translator: \n"
-"Language: it_IT\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: public/class-rc-suite-public.php:140
+#: admin/class-rc-suite-admin.php:90 admin/class-rc-suite-admin.php:122
+#: admin/class-rc-suite-admin.php:161
+#, fuzzy
+msgid "Authorization denied!"
+msgstr "Autorizzazione negata!"
+
+#: admin/class-rc-suite-admin.php:102 admin/class-rc-suite-admin.php:141
+#: admin/class-rc-suite-admin.php:180
+#, fuzzy
+msgid "Error opening the file"
+msgstr "Errore nell'apertura del file"
+
+#: admin/class-rc-suite-admin.php:106 admin/class-rc-suite-admin.php:145
+#: admin/class-rc-suite-admin.php:184
+#, fuzzy
+msgid "File name is empty!!"
+msgstr "Il nome del file è vuoto!!"
+
+#: admin/class-rc-suite-admin.php:138
+#, fuzzy
+msgid "Error testing the file!"
+msgstr "Errore durante il test del file."
+
+#: admin/class-rc-suite-admin.php:177
+#, fuzzy
+msgid "Error processing the file!"
+msgstr "Errore durante l'elaborazione del file."
+
+#: admin/partials/rc-suite-admin-display.php:30
+#, fuzzy
+msgid "Unknow origin"
+msgstr "Origine inconsapevole"
+
+#: admin/partials/rc-suite-admin-display.php:33
+#, fuzzy
+msgid "Generic error"
+msgstr "Errore generico"
+
+#: admin/partials/rc-suite-admin-display.php:38
+#, fuzzy
+msgid "File uploaded successfuly"
+msgstr "File caricato correttamente"
+
+#: admin/partials/rc-suite-admin-display.php:41
+#, fuzzy
+msgid "There was an error uploading the file!"
+msgstr "Si è verificato un errore durante il caricamento del file!"
+
+#: admin/partials/rc-suite-admin-display.php:44
+#, fuzzy
+msgid "Mathes using file "
+msgstr "Matematica con file "
+
+#: admin/partials/rc-suite-admin-display.php:47
+#, fuzzy
+msgid "File "
+msgstr "File "
+
+#: admin/partials/rc-suite-admin-display.php:51
+#, fuzzy
+msgid "Error deleting the file "
+msgstr "Errore durante l'eliminazione del file "
+
+#: admin/partials/rc-suite-admin-display.php:55
+#, fuzzy
+msgid "Number of replacements done using file "
+msgstr "Numero di sostituzioni fatte utilizzando il file "
+
+#: admin/partials/rc-suite-admin-display.php:58
+#, fuzzy
+msgid "There was an error processing file "
+msgstr "Si è verificato un file di elaborazione degli errori "
+
+#: admin/partials/rc-suite-admin-display.php:62
+#, fuzzy
+msgid "Matches found: "
+msgstr "Corrispondenze trovate: "
+
+#: admin/partials/rc-suite-admin-display.php:65
+#, fuzzy
+msgid "Number of replacements done: "
+msgstr "Numero di sostituzioni fatte: "
+
+#: admin/partials/rc-suite-admin-display.php:69
+#, fuzzy
+msgid "Unrecognized message"
+msgstr "Messaggio non riconosciuto"
+
+#: admin/partials/rc-suite-admin-display.php:218
+#, fuzzy
+msgid "Configura el plugin de moda."
+msgstr "Configura el plugin de moda."
+
+#: admin/partials/rc-suite-admin-display.php:240
+#, fuzzy
+msgid "General"
+msgstr "Generale"
+
+#: admin/partials/rc-suite-admin-display.php:350
+#: admin/partials/rc-suite-admin-display.php:354
+#: admin/partials/rc-suite-admin-display.php:360
+#, fuzzy
+msgid "Hide Price Range for WooCommerce Variable Products"
+msgstr "Nascondi fascia di prezzo per i prodotti variabili WooCommerce"
+
+#: admin/partials/rc-suite-admin-display.php:358
+#: admin/partials/rc-suite-admin-display.php:374
+#: admin/partials/rc-suite-admin-display.php:390
+#: admin/partials/rc-suite-admin-display.php:406
+#: admin/partials/rc-suite-admin-display.php:422
+#: admin/partials/rc-suite-admin-display.php:479
+#, fuzzy
+msgid "Activate"
+msgstr "Attiva"
+
+#: admin/partials/rc-suite-admin-display.php:366
+#: admin/partials/rc-suite-admin-display.php:370
+#, fuzzy
+msgid "Collapsable mobile menu"
+msgstr "Menu mobile compriabile"
+
+#: admin/partials/rc-suite-admin-display.php:376
+#, fuzzy
+msgid "Use collapsable menu in mobile view"
+msgstr "Usare il menu compricibile in visualizzazione per dispositivi mobili"
+
+#: admin/partials/rc-suite-admin-display.php:382
+#: admin/partials/rc-suite-admin-display.php:386
+#: admin/partials/rc-suite-admin-display.php:402
+#: admin/partials/rc-suite-admin-display.php:418
+#, fuzzy
+msgid "4/2 Product columns on desktop/mobile"
+msgstr "4/2 Colonne prodotto su desktop/dispositivi mobili"
+
+#: admin/partials/rc-suite-admin-display.php:392
+#, fuzzy
+msgid "4 and 2 products colums view on desktop and mobile"
+msgstr ""
+"Visualizzazione colums da 4 e 2 prodotti su desktop e dispositivi mobili"
+
+#: admin/partials/rc-suite-admin-display.php:398
+#, fuzzy
+msgid "Enable search on mobile for Divi centered"
+msgstr "Abilitare la ricerca su dispositivi mobili per Divi centrato"
+
+#: admin/partials/rc-suite-admin-display.php:408
+#, fuzzy
+msgid ""
+"Enable search on mobile for Divi centered and centered inline Logo headers. "
+"going to Divi -> Theme Customizer -> Header & Navigation -> Header Elements "
+"and check the “Show search icon” checkbox"
+msgstr ""
+"Abilita la ricerca su dispositivi mobili per le intestazioni logo in linea "
+"centrato e centrato di Divi. Andando a Divi -> Theme Customizer -> Header & "
+"Navigation -> Header Elements e selezionare la casella di controllo \"Mostra "
+"icona di ricerca\""
+
+#: admin/partials/rc-suite-admin-display.php:414
+#, fuzzy
+msgid "Remove web from comment's box"
+msgstr "Rimuovere il Web dalla casella del commento"
+
+#: admin/partials/rc-suite-admin-display.php:424
+#, fuzzy
+msgid ""
+"Remove web field in comment's box. Also users won't be able to add clickable "
+"links, and HTML code will be show as is."
+msgstr ""
+"Rimuovere il campo Web nella casella del commento. Inoltre, gli utenti non "
+"saranno in grado di aggiungere collegamenti selezionabili e il codice HTML "
+"verrà mostrato così com'è."
+
+#: admin/partials/rc-suite-admin-display.php:449
+#, fuzzy
+msgid "SEO"
+msgstr "SEO"
+
+#: admin/partials/rc-suite-admin-display.php:465
+#, fuzzy
+msgid "Seo"
+msgstr "Seo"
+
+#: admin/partials/rc-suite-admin-display.php:471
+#, fuzzy
+msgid "Blog post's under /blog/ address"
+msgstr "Il post di blog è sotto /blog/ indirizzo"
+
+#: admin/partials/rc-suite-admin-display.php:475
+#, fuzzy
+msgid "Force blog post's under /blog/ address"
+msgstr "Forza post blog sotto /blog/ indirizzo"
+
+#: admin/partials/rc-suite-admin-display.php:481
+#, fuzzy
+msgid ""
+"Force blog post's address to appear under /blog/ address. Remember to save "
+"permalinks after check/uncheck this option."
+msgstr ""
+"Forza la comparirsi dell'indirizzo del post di blog in /blog/indirizzo. "
+"Ricordarsi di salvare i permalink dopo aver controllato/deselezionato questa "
+"opzione."
+
+#: admin/partials/rc-suite-admin-display.php:488
+#, fuzzy
+msgid "Save changes"
+msgstr "Salva modifiche"
+
+#: admin/partials/rc-suite-admin-display.php:507
+#: admin/partials/rc-suite-admin-display.php:528
+#, fuzzy
+msgid "Replacer"
+msgstr "Sostituto"
+
+#: admin/partials/rc-suite-admin-display.php:529
+#, fuzzy
+msgid "Manual"
+msgstr "Manuale"
+
+#: admin/partials/rc-suite-admin-display.php:540
+#, fuzzy
+msgid "Prefix"
+msgstr "Prefisso"
+
+#: admin/partials/rc-suite-admin-display.php:548
+#, fuzzy
+msgid "Table name"
+msgstr "Nome tabella"
+
+#: admin/partials/rc-suite-admin-display.php:556
+#, fuzzy
+msgid "Field name"
+msgstr "Nome Campo"
+
+#: admin/partials/rc-suite-admin-display.php:564
+#, fuzzy
+msgid "Source string"
+msgstr "Stringa di origine"
+
+#: admin/partials/rc-suite-admin-display.php:572
+#: admin/partials/rc-suite-admin-html.php:21
+#, fuzzy
+msgid "Replacement string"
+msgstr "Stringa di sostituzione"
+
+#: admin/partials/rc-suite-admin-display.php:583
+#, fuzzy
+msgid "Test"
+msgstr "Test"
+
+#: admin/partials/rc-suite-admin-display.php:584
+#, fuzzy
+msgid "Replace"
+msgstr "Sostituisci"
+
+#: admin/partials/rc-suite-admin-display.php:592
+#, fuzzy
+msgid "By file"
+msgstr "Per file"
+
+#: admin/partials/rc-suite-admin-display.php:603
+#, fuzzy
+msgid "Upload file"
+msgstr "Carica file"
+
+#: admin/partials/rc-suite-admin-display.php:607
+#, fuzzy
+msgid "Upload CSV"
+msgstr "Carica file CSV"
+
+#: admin/partials/rc-suite-admin-display.php:622
+#, fuzzy
+msgid "Choose File"
+msgstr "Scegli file"
+
+#: admin/partials/rc-suite-admin-display.php:625
+#, fuzzy
+msgid "Choose a file to process"
+msgstr "Scegliere un file da elaborare"
+
+#: admin/partials/rc-suite-admin-display.php:649
+#, fuzzy
+msgid "Test file"
+msgstr "File di prova"
+
+#: admin/partials/rc-suite-admin-display.php:650
+#, fuzzy
+msgid "Process file"
+msgstr "File di processo"
+
+#: admin/partials/rc-suite-admin-display.php:651
+#, fuzzy
+msgid "Delete file"
+msgstr "Cancella file"
+
+#: admin/partials/rc-suite-admin-display.php:672
+#: admin/partials/rc-suite-admin-display.php:696
+#, fuzzy
+msgid "Tags"
+msgstr "Tags"
+
+#: admin/partials/rc-suite-admin-display.php:697
+#, fuzzy
+msgid "Listado"
+msgstr "Listado"
+
+#: admin/partials/rc-suite-admin-display.php:723
+#: admin/partials/rc-suite-admin-display.php:739
+#, fuzzy
+msgid "Divi clases"
+msgstr "Divi clasi"
+
+#: admin/partials/rc-suite-admin-display.php:743
+#, fuzzy
+msgid "Tag"
+msgstr "Tag"
+
+#: admin/partials/rc-suite-admin-display.php:744
+#, fuzzy
+msgid "Module"
+msgstr "Modulo"
+
+#: admin/partials/rc-suite-admin-display.php:745
+#, fuzzy
+msgid "Action"
+msgstr "Azione"
+
+#: admin/partials/rc-suite-admin-display.php:751
+#: admin/partials/rc-suite-admin-display.php:756
+#, fuzzy
+msgid "Menu"
+msgstr "Menu"
+
+#: admin/partials/rc-suite-admin-display.php:752
+#, fuzzy
+msgid "Prevent the menu from collapsing on the mobile version."
+msgstr "Impedire il collasso del menu nella versione mobile."
+
+#: admin/partials/rc-suite-admin-display.php:757
+#, fuzzy
+msgid "Changes the menu to list mode."
+msgstr "Cambia il menu in modalità elenco."
+
+#: admin/partials/rc-suite-admin-html.php:13
+#, fuzzy
+msgid "File structure"
+msgstr "Struttura dei file"
+
+#: admin/partials/rc-suite-admin-html.php:18
+#: admin/partials/rc-suite-admin-html.php:63
+#: admin/partials/rc-suite-admin-html.php:105
+#, fuzzy
+msgid "Table"
+msgstr "Tabella"
+
+#: admin/partials/rc-suite-admin-html.php:19
+#: admin/partials/rc-suite-admin-html.php:64
+#: admin/partials/rc-suite-admin-html.php:106
+#, fuzzy
+msgid "Field"
+msgstr "Campo"
+
+#: admin/partials/rc-suite-admin-html.php:20
+#: admin/partials/rc-suite-admin-html.php:65
+#: admin/partials/rc-suite-admin-html.php:107
+#, fuzzy
+msgid "String to replace"
+msgstr "Stringa da sostituire"
+
+#: admin/partials/rc-suite-admin-html.php:58
+#, fuzzy
+msgid "File test result"
+msgstr "Risultato del test dei file"
+
+#: admin/partials/rc-suite-admin-html.php:66
+#, fuzzy
+msgid "Matches"
+msgstr "Corrispondenze"
+
+#: admin/partials/rc-suite-admin-html.php:100
+#, fuzzy
+msgid "Replacements done"
+msgstr "Sostituzioni fatte"
+
+#: admin/partials/rc-suite-admin-html.php:108
+#, fuzzy
+msgid "Replaces"
+msgstr "Sostituisce"
+
+#: lib/plugin-update-checker/Puc/v4p10/Plugin/Ui.php:54
+#, fuzzy
+msgid "View details"
+msgstr "Vedi dettagli"
+
+#: lib/plugin-update-checker/Puc/v4p10/Plugin/Ui.php:77
+#, fuzzy, php-format
+msgid "More information about %s"
+msgstr "Più informazioni su %s"
+
+#: lib/plugin-update-checker/Puc/v4p10/Plugin/Ui.php:128
+#, fuzzy
+msgid "Check for updates"
+msgstr "Controlla gli aggiornamenti"
+
+#: lib/plugin-update-checker/Puc/v4p10/Plugin/Ui.php:213
+#, fuzzy, php-format
+msgctxt "the plugin title"
+msgid "The %s plugin is up to date."
+msgstr "Il plugin %s è aggiornato."
+
+#: lib/plugin-update-checker/Puc/v4p10/Plugin/Ui.php:215
+#, fuzzy, php-format
+msgctxt "the plugin title"
+msgid "A new version of the %s plugin is available."
+msgstr "È disponibile una nuova versione del plugin %s."
+
+#: lib/plugin-update-checker/Puc/v4p10/Plugin/Ui.php:217
+#, fuzzy, php-format
+msgctxt "the plugin title"
+msgid "Could not determine if updates are available for %s."
+msgstr ""
+"Non è stato possibile determinare se è disponibile un aggiornamento di %s."
+
+#: lib/plugin-update-checker/Puc/v4p10/Plugin/Ui.php:223
+#, fuzzy, php-format
+msgid "Unknown update checker status \"%s\""
+msgstr "Aggiornamento sconosciuto stato checker \"%s\""
+
+#: lib/plugin-update-checker/Puc/v4p10/Vcs/PluginUpdateChecker.php:98
+#, fuzzy
+msgid "There is no changelog available."
+msgstr "La cronologia degli aggiornamenti non è disponibile."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:204
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:289
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:596
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-banner.php:27
+#, fuzzy
+msgid "License key status is unknow"
+msgstr "Lo stato della chiave di licenza non è noto"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:218
+#, fuzzy
+msgid "Incorrect data. Check license key."
+msgstr "Dati errati. Controllare la chiave di licenza."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:221
+#, fuzzy
+msgid "The license key is invalid!"
+msgstr "Il codice di licenza non è valido."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:224
+#, fuzzy
+msgid ""
+"Order status is not completed! Please complete order before activating "
+"product."
+msgstr ""
+"Lo stato dell'ordine non è stato completato! Si prega di completare l'ordine "
+"prima di attivare il prodotto."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:227
+#, fuzzy
+msgid "Invalid licence key or licence key inactive"
+msgstr "Chiave di licenza o chiave di licenza non valida inattiva"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:230
+#, fuzzy
+msgid "Reached maximum allowable domains!"
+msgstr "Raggiunto il massimo domini consentiti!"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:233
+#, fuzzy
+msgid "Unexpected error! : "
+msgstr "Errore imprevisto! : "
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:267
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:317
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:362
+#, fuzzy
+msgid ""
+"Unexpected Error calling activation server! The activation did not success."
+msgstr ""
+"Errore imprevisto durante la chiamata al server di attivazione. "
+"L'attivazione non ha avuto esito positivo."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:279
+#, fuzzy
+msgid "License key is activate"
+msgstr "Il codice di licenza è attivato"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:284
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:371
+#, fuzzy
+msgid "License key is expired"
+msgstr "Il codice di licenza è scaduto"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:305
+#, fuzzy
+msgid "Error: Invalid licence key or licence not active for domain."
+msgstr ""
+"Errore: chiave di licenza non valida o licenza non attiva per il dominio."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:309
+#, fuzzy
+msgid "The activation did not success: "
+msgstr "L'attivazione non ha avuto esito positivo: "
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:323
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:403
+#, fuzzy
+msgid "License key not found"
+msgstr "Chiave di licenza non trovata"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:329
+#, fuzzy
+msgid "License key not found! The activation did not success."
+msgstr ""
+"Chiave di licenza non trovata. L'attivazione non ha avuto esito positivo."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:384
+#, fuzzy
+msgid "Error: Invalid licence key or licence key already inactive."
+msgstr "Errore: chiave di licenza non valida o chiave di licenza già inattiva."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:388
+#, fuzzy
+msgid "The deactivation did not success: "
+msgstr "La disattivazione non ha avuto successo: "
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:397
+#, fuzzy
+msgid ""
+"Unexpected Error calling deactivation server! The deactivation did not "
+"success."
+msgstr ""
+"Errore imprevisto durante la chiamata al server di disattivazione. La "
+"disattivazione non ha avuto successo."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:408
+#, fuzzy
+msgid "License key not found! The deactivation did not success."
+msgstr ""
+"Chiave di licenza non trovata. La disattivazione non ha avuto successo."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:457
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:511
+#, fuzzy
+msgid "Unexpected Error checking license key status."
+msgstr ""
+"Errore imprevisto durante il controllo dello stato della chiave di licenza."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:563
+#, fuzzy
+msgid "License key is active but has expired"
+msgstr "Il codice di licenza è attivo ma è scaduto"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:566
+#, fuzzy
+msgid "License key is active"
+msgstr "Il codice di licenza è attivo"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:569
+#, fuzzy
+msgid "License key is inactive"
+msgstr "Il codice di licenza è inattivo"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:572
+#, fuzzy
+msgid "License key is invalid"
+msgstr "La chiave di licenza non è valida"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:575
+#, fuzzy
+msgid "License key is deactivated"
+msgstr "Il codice di licenza è disattivato"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:578
+#, fuzzy
+msgid "License key is blocked"
+msgstr "Il codice di licenza è bloccato"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:581
+#, fuzzy
+msgid ""
+"License key is active but deactivated to this domain, try activate it again."
+msgstr ""
+"Il codice di licenza è attivo ma disattivato in questo dominio, provare ad "
+"attivarlo di nuovo."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:584
+#, fuzzy
+msgid "Licence Key does not match this product."
+msgstr "La chiave di licenza non corrisponde a questo prodotto."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:587
+#, fuzzy
+msgid "Invalid Product Unique ID."
+msgstr "ID univoco prodotto non valido."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:590
+#, fuzzy
+msgid ""
+"License key is inactive. Please complete order before activating product."
+msgstr ""
+"Il codice di licenza è inattivo. Si prega di completare l'ordine prima di "
+"attivare il prodotto."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:652
+#, fuzzy
+msgid "License key status unknow"
+msgstr "Stato chiave di licenza non noto"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:832
+#, fuzzy
+msgid "License key activated successfully"
+msgstr "Chiave di licenza attivata correttamente"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:838
+#, fuzzy
+msgid "Error activating license: Empty License key"
+msgstr "Errore durante l'attivazione della licenza: chiave di licenza vuota"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:841
+#, fuzzy
+msgid "Error activating license: "
+msgstr "Errore durante l'attivazione della licenza: "
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:847
+#, fuzzy
+msgid "License key was deactivated successfully"
+msgstr "Il codice di licenza è stato disattivato correttamente"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:853
+#, fuzzy
+msgid "Error deactivating license: Empty License key"
+msgstr ""
+"Errore durante la disattivazione della licenza: chiave di licenza vuota"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:856
+#, fuzzy
+msgid "Error deactivating license: "
+msgstr "Errore durante la disattivazione della licenza: "
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:861
+#, fuzzy
+msgid "Unrecognized message: "
+msgstr "Messaggio non riconosciuto: "
+
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-banner.php:9
+#, fuzzy
+msgid "Plugin license has expired!"
+msgstr "La licenza del plug-in è scaduta!"
+
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-banner.php:10
+#, fuzzy
+msgid "Plugin updating is disabled! Extend your license now!"
+msgstr "L'aggiornamento del plug-in è disabilitato! Estendi subito la licenza!"
+
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-banner.php:19
+#, fuzzy
+msgid "License key is not active"
+msgstr "Il codice di licenza non è attivo"
+
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-banner.php:20
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-banner.php:28
+#, fuzzy
+msgid "Please activate you license key"
+msgstr "Attivare la chiave di licenza"
+
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-license-form.php:12
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-license-form.php:24
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-tabs.php:7
+#, fuzzy
+msgid "License Key"
+msgstr "Chiave di licenza"
+
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-license-form.php:14
+#, fuzzy
+msgid "Here you can manage your license key."
+msgstr "Qui puoi gestire il codice di licenza."
+
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-license-form.php:32
+#, fuzzy
+msgid "Status"
+msgstr "Stato"
+
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-license-form.php:46
+#, fuzzy
+msgid "Activate License Key"
+msgstr "Attivare il codice di licenza"
+
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-license-form.php:53
+#, fuzzy
+msgid "Deactivate License Key"
+msgstr "Disattivare la chiave di licenza API"
+
+#: lib/wp-package-updater/class-wp-package-updater.php:220
+#, fuzzy
+msgid "Sorry, you are not allowed to access this page."
+msgstr "Mi dispiace, non sei abilitato ad accedere a questa pagina."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:267
+#, fuzzy
+msgid "Theme License - "
+msgstr "Licenza tema - "
+
+#: lib/wp-package-updater/class-wp-package-updater.php:412
+#: lib/wp-package-updater/class-wp-package-updater.php:421
+#, fuzzy
+msgid ""
+"Unexpected Error! The query to retrieve the license data returned a "
+"malformed response."
+msgstr ""
+"Errore imprevisto! La query per recuperare i dati della licenza ha "
+"restituito una risposta non valida."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:439
+#, fuzzy
+msgid "The license is already in use for this domain."
+msgstr "La licenza è già in uso per questo dominio."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:442
+#, fuzzy
+msgid ""
+"The license has reached the maximum number of activations and cannot be "
+"activated for this domain."
+msgstr ""
+"La licenza ha raggiunto il numero massimo di attivazioni e non può essere "
+"attivata per questo dominio."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:448
+#, fuzzy
+msgid "The license is already inactive for this domain."
+msgstr "La licenza è già inattiva per questo dominio."
+
+#. translators: the license expiry date
+#: lib/wp-package-updater/class-wp-package-updater.php:459
+#, fuzzy, php-format
+msgid "The license expired on %s and needs to be renewed to be updated."
+msgstr "La licenza è scaduta %s e deve essere rinnovata per essere aggiornata."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:463
+#, fuzzy
+msgid "The license expired and needs to be renewed to be updated."
+msgstr "La licenza è scaduta e deve essere rinnovata per essere aggiornata."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:469
+#, fuzzy
+msgid ""
+"The license is blocked and cannot be updated anymore. Please use another "
+"license key."
+msgstr ""
+"La licenza è bloccata e non può più essere aggiornata. Utilizzare un'altra "
+"chiave di licenza."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:472
+#, fuzzy
+msgid "The provided license key does not appear to be valid."
+msgstr "La chiave di licenza fornita non sembra essere valida."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:476
+#, fuzzy
+msgid ""
+"An active license is required to update the plugin. Please provide a valid "
+"license key in Plugins > Installed Plugins."
+msgstr ""
+"Per aggiornare il plug-in è necessaria una licenza attiva. Si prega di "
+"fornire una chiave di licenza valida in Plugin > Plugin installati."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:478
+#, fuzzy
+msgid ""
+"An active license is required to update the theme. Please provide a valid "
+"license key in Appearence > Theme License."
+msgstr ""
+"Per aggiornare il tema è necessaria una licenza attiva. Specificare una "
+"chiave di licenza valida in > tema di riferimento."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:484
+#, fuzzy
+msgid ""
+"An unexpected error has occured. Please try again. If the problem persists, "
+"please contact the author of the plugin."
+msgstr ""
+"Si è verificato un errore imprevisto. Riprova. Se il problema persiste, "
+"contattare l'autore del plug-in."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:486
+#, fuzzy
+msgid ""
+"An unexpected error has occured. Please try again. If the problem persists, "
+"please contact the author of the theme."
+msgstr ""
+"Si è verificato un errore imprevisto. Riprova. Se il problema persiste, "
+"contattare l'autore del tema."
+
+#: lib/wp-package-updater/templates/license-form.php:6
+#, fuzzy
+msgid "Current license key:"
+msgstr "Chiave di licenza corrente:"
+
+#: lib/wp-package-updater/templates/license-form.php:9
+#, fuzzy
+msgid "License key to change:"
+msgstr "Chiave di licenza da modificare:"
+
+#: public/class-rc-suite-public.php:99 public/class-rc-suite-public.php:118
+#, fuzzy
 msgid "Hello"
 msgstr "Ciao"
 
-#: public/class-rc-suite-public.php:140
+#: public/class-rc-suite-public.php:99 public/class-rc-suite-public.php:118
+#, fuzzy
 msgid "Log out"
 msgstr "Disconnettiti"
 
-#: public/class-rc-suite-public.php:146
+#: public/class-rc-suite-public.php:101 public/class-rc-suite-public.php:124
+#, fuzzy
 msgid "Login"
 msgstr "Accesso"
 
+#: public/class-rc-suite-public.php:152
+#, fuzzy, php-format
+msgid "Desde <del>%s</del><ins>%s</ins> "
+msgstr "Desde <del>%s</del> <ins>%s</ins>"
+
+#: public/class-rc-suite-public.php:155
+#, fuzzy, php-format
+msgid "Desde %1$s "
+msgstr "%1$s Desde "
+
 #. Plugin Name of the plugin/theme
+#, fuzzy
 msgid "RC Suite"
-msgstr ""
+msgstr "RC Suite"
 
 #. Plugin URI of the plugin/theme
+#, fuzzy
 msgid "https://www.raulcarrion.com/plugins/rc-suite/"
-msgstr ""
+msgstr "https://www.raulcarrion.com/plugins/rc-suite/"
 
 #. Description of the plugin/theme
+#, fuzzy
 msgid "Funcionalidades para mejorar tu sitio web."
-msgstr ""
+msgstr "Funcionalidades para mejorar tu sitio web."
 
 #. Author of the plugin/theme
+#, fuzzy
 msgid "Raúl Carrión"
-msgstr ""
+msgstr "Raúl Carrión"
 
 #. Author URI of the plugin/theme
+#, fuzzy
 msgid "https://www.raulcarrion.com/"
-msgstr ""
+msgstr "https://www.raulcarrion.com/"

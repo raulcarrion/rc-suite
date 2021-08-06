@@ -31,6 +31,13 @@ No
 
 == Changelog ==
 
+
+
+= 1.1.7 =
+    - Improved /blog/ redirection option
+    - Added menu selection to WooCommerce "customer menu"
+    - Added new tab "Divi" with css tags to use
+
 = 1.1.6 =
     - Added russian and french translations
     - Added options for comments box

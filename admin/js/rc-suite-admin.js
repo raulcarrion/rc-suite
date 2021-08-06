@@ -4,6 +4,20 @@
 	// Cuando el documento se ha cargado completamente
 	$(document).ready(function($) {
 
+		//Gestion del boton del menu Woo
+		$("#rc_login_customer_enabled").on("click", function(){
+			if ($(this).is(':checked'))
+				$("#rc_suite_woo_menu").prop( "disabled", false );
+			else
+				$("#rc_suite_woo_menu").prop( "disabled", true );
+		});
+
+		if ($("#rc_login_customer_enabled").is(':checked'))
+			$("#rc_suite_woo_menu").prop( "disabled", false );
+		else
+			$("#rc_suite_woo_menu").prop( "disabled", true );
+
+
 		// Actualizamos la info del fihcero 
 		if ($('#rcsu-choose-file').val() != "")
 		{

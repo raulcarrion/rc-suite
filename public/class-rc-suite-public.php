@@ -111,16 +111,15 @@ class Rc_Suite_Public {
 		global $current_user;
 		wp_get_current_user(); 
 
-		if (is_user_logged_in() && $args->theme_location == 'secondary-menu') {
+		$id_menu            = (is_object($args->menu) ? $args->menu->term_id : $args->menu);
+		$id_menu_selected   = get_option('rc_suite_woo_menu');
 
-		$items .= '<li id="menu-item-rc" class="menu-item"><a class="rc-mi-cuenta" href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">' . __('Hello', 'rc-suite'). ' ' . $current_user->display_name . '</a> (<a class="salir-link" href="'. wp_logout_url( get_permalink( wc_get_page_id( 'myaccount' ) ) ) .'">' . __('Log out', 'rc-suite') . '</a>)</li>';
-
-		}
-
-		elseif (!is_user_logged_in() && $args->theme_location == 'secondary-menu') {
-
-		$items .= '<li id="menu-item-rc" class="menu-item"><a href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">' . __('Login', 'rc-suite') . '</a></li>';
-
+		if ($id_menu == $id_menu_selected)
+		{
+			if (is_user_logged_in() ) 
+				$items .= '<li id="menu-item-rc" class="menu-item"><a class="rc-mi-cuenta" href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">' . __('Hello', 'rc-suite'). ' ' . $current_user->display_name . '</a> (<a class="salir-link" href="'. wp_logout_url( get_permalink( wc_get_page_id( 'myaccount' ) ) ) .'">' . __('Log out', 'rc-suite') . '</a>)</li>';
+			else
+				$items .= '<li id="menu-item-rc" class="menu-item"><a href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">' . __('Login', 'rc-suite') . '</a></li>';
 		}
 
 		return $items;
@@ -181,9 +180,23 @@ class Rc_Suite_Public {
 	public function rcsu_seo_blog_posts_add_rewrite_rules( $wp_rewrite )
 	{
 		$new_rules = [
+			'blog/categoria/(.+?)/page/([0-9]{1,})/?$'   => 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1) . '&paged='. $wp_rewrite->preg_index(2),
+			'blog/categoria/(.+?)/?$'   => 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1),
 			'blog/page/([0-9]{1,})/?$' => 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1),
 			'blog/(.+?)/?$' => 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1),
 		];
+
+		if (function_exists('pll_languages_list'))
+		{
+			foreach(pll_languages_list() as $idioma)
+			{
+				$new_rules[$idioma.'/blog/'.pll_translate_string("categoria", $idioma).'/(.+?)/page/([0-9]{1,})/?$']  = 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1). '&paged='. $wp_rewrite->preg_index(2);
+				$new_rules[$idioma.'/blog/'.pll_translate_string("categoria", $idioma).'/(.+?)/?$']  = 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1);
+				$new_rules[$idioma.'/blog/page/([0-9]{1,})/?$'] = 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1);
+				$new_rules[$idioma.'/blog/(.+?)/?$']            = 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1);
+			}
+		}
+
 		$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
 		return $wp_rewrite->rules;
 	}
@@ -195,6 +208,35 @@ class Rc_Suite_Public {
 			return home_url('/blog/'. $post->post_name.'/');
 		}
 		return $post_link;
+	}
+
+	/*	Redirecciona a /blog si se inserta la URL sin el /blog */
+	function redirect_old_urls() {
+
+		if ( is_singular('post') && !is_preview() && !is_admin()) {
+			global $post;
+	
+			if ( strpos( $_SERVER['REQUEST_URI'], 'et_fb=1') === false){
+				if ( strpos( $_SERVER['REQUEST_URI'], '/blog/') === false) {
+				wp_redirect( home_url( user_trailingslashit( "blog/$post->post_name" ) ), 301 );
+				exit();
+				}
+			}
+		}
+	}
+
+	/*	Cambiamos el canonical de los blogs	*/
+	function yoast_remove_canonical_items( $canonical ) {
+		if ( is_singular('post') ) {
+			if (function_exists('pll_home_url'))
+				$canonical = pll_home_url() . user_trailingslashit('blog/'. get_post_field( 'post_name'));
+			else
+				$canonical = home_url(user_trailingslashit('blog/'. get_post_field( 'post_name')));
+		}
+		//error_log("Es es: " . get_post_field( 'post_name'));
+
+		//Use a second if statement here when needed 
+		return $canonical; 
 	}
 
 	/**

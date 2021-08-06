@@ -1,52 +1,737 @@
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: RC Suite\n"
-"POT-Creation-Date: 2020-03-22 12:15+0100\n"
-"PO-Revision-Date: 2020-03-25 15:25+0100\n"
+"POT-Creation-Date: 2021-08-04 18:53+0200\n"
+"PO-Revision-Date: 2021-08-04 18:54+0200\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: rc-suite.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"Last-Translator: \n"
-"Language: de_DE\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: public/class-rc-suite-public.php:140
+#: admin/class-rc-suite-admin.php:90 admin/class-rc-suite-admin.php:122
+#: admin/class-rc-suite-admin.php:161
+msgid "Authorization denied!"
+msgstr "Autorisierung verweigert!"
+
+#: admin/class-rc-suite-admin.php:102 admin/class-rc-suite-admin.php:141
+#: admin/class-rc-suite-admin.php:180
+msgid "Error opening the file"
+msgstr "Fehler beim Öffnen der Datei"
+
+#: admin/class-rc-suite-admin.php:106 admin/class-rc-suite-admin.php:145
+#: admin/class-rc-suite-admin.php:184
+msgid "File name is empty!!"
+msgstr "Dateiname ist leer!!"
+
+#: admin/class-rc-suite-admin.php:138
+msgid "Error testing the file!"
+msgstr "Fehler beim Testen der Datei!"
+
+#: admin/class-rc-suite-admin.php:177
+msgid "Error processing the file!"
+msgstr "Fehler bei der Verarbeitung der Datei!"
+
+#: admin/partials/rc-suite-admin-display.php:30
+msgid "Unknow origin"
+msgstr "Unbekannte Herkunft"
+
+#: admin/partials/rc-suite-admin-display.php:33
+msgid "Generic error"
+msgstr "Generischer Fehler"
+
+#: admin/partials/rc-suite-admin-display.php:38
+msgid "File uploaded successfuly"
+msgstr "Datei erfolgreich hochgeladen"
+
+#: admin/partials/rc-suite-admin-display.php:41
+msgid "There was an error uploading the file!"
+msgstr "Beim Hochladen der Datei ist ein Fehler aufgetreten!"
+
+#: admin/partials/rc-suite-admin-display.php:44
+msgid "Mathes using file "
+msgstr "Mathes mit Datei "
+
+#: admin/partials/rc-suite-admin-display.php:47
+msgid "File "
+msgstr "Datei "
+
+#: admin/partials/rc-suite-admin-display.php:51
+msgid "Error deleting the file "
+msgstr "Fehler beim Löschen der Datei "
+
+#: admin/partials/rc-suite-admin-display.php:55
+msgid "Number of replacements done using file "
+msgstr "Anzahl der Ersetzungen mit datei "
+
+#: admin/partials/rc-suite-admin-display.php:58
+msgid "There was an error processing file "
+msgstr "Bei der Verarbeitung der Datei ist ein Fehler aufgetreten "
+
+#: admin/partials/rc-suite-admin-display.php:62
+msgid "Matches found: "
+msgstr "Gefundene Übereinstimmungen: "
+
+#: admin/partials/rc-suite-admin-display.php:65
+msgid "Number of replacements done: "
+msgstr "Anzahl der durchgeführten Ersetzungen: "
+
+#: admin/partials/rc-suite-admin-display.php:69
+msgid "Unrecognized message"
+msgstr "Nicht erkannte Nachricht"
+
+#: admin/partials/rc-suite-admin-display.php:218
+msgid "Configura el plugin de moda."
+msgstr "Configura el plugin de moda."
+
+#: admin/partials/rc-suite-admin-display.php:240
+msgid "General"
+msgstr "Allgemein"
+
+#: admin/partials/rc-suite-admin-display.php:350
+#: admin/partials/rc-suite-admin-display.php:354
+#: admin/partials/rc-suite-admin-display.php:360
+msgid "Hide Price Range for WooCommerce Variable Products"
+msgstr "Preisspanne für WooCommerce Variable Produkte ausblenden"
+
+#: admin/partials/rc-suite-admin-display.php:358
+#: admin/partials/rc-suite-admin-display.php:374
+#: admin/partials/rc-suite-admin-display.php:390
+#: admin/partials/rc-suite-admin-display.php:406
+#: admin/partials/rc-suite-admin-display.php:422
+#: admin/partials/rc-suite-admin-display.php:479
+msgid "Activate"
+msgstr "Aktivieren"
+
+#: admin/partials/rc-suite-admin-display.php:366
+#: admin/partials/rc-suite-admin-display.php:370
+msgid "Collapsable mobile menu"
+msgstr "Zusammenklappbares mobiles Menü"
+
+#: admin/partials/rc-suite-admin-display.php:376
+msgid "Use collapsable menu in mobile view"
+msgstr "Verwenden des reduzierbaren Menüs in der mobilen Ansicht"
+
+#: admin/partials/rc-suite-admin-display.php:382
+#: admin/partials/rc-suite-admin-display.php:386
+#: admin/partials/rc-suite-admin-display.php:402
+#: admin/partials/rc-suite-admin-display.php:418
+msgid "4/2 Product columns on desktop/mobile"
+msgstr "4/2 Produktspalten auf Desktop/Handy"
+
+#: admin/partials/rc-suite-admin-display.php:392
+msgid "4 and 2 products colums view on desktop and mobile"
+msgstr "4 und 2 Produkte Colums Ansicht auf Desktop und Handy"
+
+#: admin/partials/rc-suite-admin-display.php:398
+msgid "Enable search on mobile for Divi centered"
+msgstr "Aktivieren Sie die Suche auf Mobilgeräten für Divi-zentriert"
+
+#: admin/partials/rc-suite-admin-display.php:408
+msgid ""
+"Enable search on mobile for Divi centered and centered inline Logo headers. "
+"going to Divi -> Theme Customizer -> Header & Navigation -> Header Elements "
+"and check the “Show search icon” checkbox"
+msgstr ""
+"Aktivieren Sie die Suche auf Mobilgeräten nach Divi-zentrierten und "
+"zentrierten Inline-Logo-Headern. Gehen Sie zu Divi -> Theme Customizer -> "
+"Header & Navigation -> Header Elements und aktivieren Sie das "
+"Kontrollkästchen \"Suchsymbol anzeigen\""
+
+#: admin/partials/rc-suite-admin-display.php:414
+msgid "Remove web from comment's box"
+msgstr "Web aus Kommentarfeld entfernen"
+
+#: admin/partials/rc-suite-admin-display.php:424
+msgid ""
+"Remove web field in comment's box. Also users won't be able to add clickable "
+"links, and HTML code will be show as is."
+msgstr ""
+"Entfernen Sie das Webfeld im Kommentarfeld. Außerdem können Benutzer keine "
+"anklickbaren Links hinzufügen, und HTML-Code wird so angezeigt, wie er ist."
+
+#: admin/partials/rc-suite-admin-display.php:449
+msgid "SEO"
+msgstr "SEO"
+
+#: admin/partials/rc-suite-admin-display.php:465
+msgid "Seo"
+msgstr "Seo"
+
+#: admin/partials/rc-suite-admin-display.php:471
+msgid "Blog post's under /blog/ address"
+msgstr "Blogbeitrag's unter /blog/ Adresse"
+
+#: admin/partials/rc-suite-admin-display.php:475
+msgid "Force blog post's under /blog/ address"
+msgstr "Blogbeitrag unter /blog/Adresse erzwingen"
+
+#: admin/partials/rc-suite-admin-display.php:481
+msgid ""
+"Force blog post's address to appear under /blog/ address. Remember to save "
+"permalinks after check/uncheck this option."
+msgstr ""
+"Erzwingen Sie, dass die Adresse des Blogbeitrags unter /blog/ address "
+"angezeigt wird. Denken Sie daran, Permalinks zu speichern, nachdem Sie diese "
+"Option aktiviert / deaktiviert haben."
+
+#: admin/partials/rc-suite-admin-display.php:488
+msgid "Save changes"
+msgstr "Änderungen speichern"
+
+#: admin/partials/rc-suite-admin-display.php:507
+#: admin/partials/rc-suite-admin-display.php:528
+msgid "Replacer"
+msgstr "Replacer"
+
+#: admin/partials/rc-suite-admin-display.php:529
+msgid "Manual"
+msgstr "Manuell"
+
+#: admin/partials/rc-suite-admin-display.php:540
+msgid "Prefix"
+msgstr "Prefix"
+
+#: admin/partials/rc-suite-admin-display.php:548
+msgid "Table name"
+msgstr "Tabellenname"
+
+#: admin/partials/rc-suite-admin-display.php:556
+msgid "Field name"
+msgstr "Feldname"
+
+#: admin/partials/rc-suite-admin-display.php:564
+msgid "Source string"
+msgstr "Quellzeichenfolge"
+
+#: admin/partials/rc-suite-admin-display.php:572
+#: admin/partials/rc-suite-admin-html.php:21
+msgid "Replacement string"
+msgstr "Ersatzzeichenfolge"
+
+#: admin/partials/rc-suite-admin-display.php:583
+msgid "Test"
+msgstr "Test"
+
+#: admin/partials/rc-suite-admin-display.php:584
+msgid "Replace"
+msgstr "Ersetzen"
+
+#: admin/partials/rc-suite-admin-display.php:592
+msgid "By file"
+msgstr "Nach Datei"
+
+#: admin/partials/rc-suite-admin-display.php:603
+msgid "Upload file"
+msgstr "Datei hochladen"
+
+#: admin/partials/rc-suite-admin-display.php:607
+msgid "Upload CSV"
+msgstr "CSV-Datei hochladen"
+
+#: admin/partials/rc-suite-admin-display.php:622
+msgid "Choose File"
+msgstr "Datei wählen"
+
+#: admin/partials/rc-suite-admin-display.php:625
+msgid "Choose a file to process"
+msgstr "Wählen Sie eine zu verarbeitende Datei aus"
+
+#: admin/partials/rc-suite-admin-display.php:649
+msgid "Test file"
+msgstr "Testdatei"
+
+#: admin/partials/rc-suite-admin-display.php:650
+msgid "Process file"
+msgstr "Prozessdatei"
+
+#: admin/partials/rc-suite-admin-display.php:651
+msgid "Delete file"
+msgstr "Datei löschen"
+
+#: admin/partials/rc-suite-admin-display.php:672
+#: admin/partials/rc-suite-admin-display.php:696
+msgid "Tags"
+msgstr "Schlagwörter"
+
+#: admin/partials/rc-suite-admin-display.php:697
+msgid "Listado"
+msgstr "Listado"
+
+#: admin/partials/rc-suite-admin-display.php:723
+#: admin/partials/rc-suite-admin-display.php:739
+msgid "Divi clases"
+msgstr "Divi klases"
+
+#: admin/partials/rc-suite-admin-display.php:743
+msgid "Tag"
+msgstr "Schlagwort"
+
+#: admin/partials/rc-suite-admin-display.php:744
+msgid "Module"
+msgstr "Modul"
+
+#: admin/partials/rc-suite-admin-display.php:745
+msgid "Action"
+msgstr "Aktion"
+
+#: admin/partials/rc-suite-admin-display.php:751
+#: admin/partials/rc-suite-admin-display.php:756
+msgid "Menu"
+msgstr "Menü"
+
+#: admin/partials/rc-suite-admin-display.php:752
+msgid "Prevent the menu from collapsing on the mobile version."
+msgstr "Verhindern Sie, dass das Menü in der mobilen Version zusammenbricht."
+
+#: admin/partials/rc-suite-admin-display.php:757
+msgid "Changes the menu to list mode."
+msgstr "Ändert das Menü in den Listenmodus."
+
+#: admin/partials/rc-suite-admin-html.php:13
+msgid "File structure"
+msgstr "Dateistruktur"
+
+#: admin/partials/rc-suite-admin-html.php:18
+#: admin/partials/rc-suite-admin-html.php:63
+#: admin/partials/rc-suite-admin-html.php:105
+msgid "Table"
+msgstr "Tabelle"
+
+#: admin/partials/rc-suite-admin-html.php:19
+#: admin/partials/rc-suite-admin-html.php:64
+#: admin/partials/rc-suite-admin-html.php:106
+msgid "Field"
+msgstr "Feld"
+
+#: admin/partials/rc-suite-admin-html.php:20
+#: admin/partials/rc-suite-admin-html.php:65
+#: admin/partials/rc-suite-admin-html.php:107
+msgid "String to replace"
+msgstr "Zu ersetzene Zeichenfolge"
+
+#: admin/partials/rc-suite-admin-html.php:58
+msgid "File test result"
+msgstr "Dateitestergebnis"
+
+#: admin/partials/rc-suite-admin-html.php:66
+msgid "Matches"
+msgstr "Wettkämpfe"
+
+#: admin/partials/rc-suite-admin-html.php:100
+msgid "Replacements done"
+msgstr "Ersatz erledigt"
+
+#: admin/partials/rc-suite-admin-html.php:108
+msgid "Replaces"
+msgstr "Ersetzt"
+
+#: lib/plugin-update-checker/Puc/v4p10/Plugin/Ui.php:54
+msgid "View details"
+msgstr "Details anzeigen"
+
+#: lib/plugin-update-checker/Puc/v4p10/Plugin/Ui.php:77
+#, php-format
+msgid "More information about %s"
+msgstr "Mehr Informationen über %s"
+
+#: lib/plugin-update-checker/Puc/v4p10/Plugin/Ui.php:128
+msgid "Check for updates"
+msgstr "Auf Aktualisierungen prüfen"
+
+#: lib/plugin-update-checker/Puc/v4p10/Plugin/Ui.php:213
+#, php-format
+msgctxt "the plugin title"
+msgid "The %s plugin is up to date."
+msgstr "Das %s Plugin ist aktuell."
+
+#: lib/plugin-update-checker/Puc/v4p10/Plugin/Ui.php:215
+#, php-format
+msgctxt "the plugin title"
+msgid "A new version of the %s plugin is available."
+msgstr "Eine neue Version des Plugins %s ist verfügbar."
+
+#: lib/plugin-update-checker/Puc/v4p10/Plugin/Ui.php:217
+#, php-format
+msgctxt "the plugin title"
+msgid "Could not determine if updates are available for %s."
+msgstr "Konnte nicht prüfen, ob Updates für das Plugin %s verfügbar sind."
+
+#: lib/plugin-update-checker/Puc/v4p10/Plugin/Ui.php:223
+#, php-format
+msgid "Unknown update checker status \"%s\""
+msgstr "Unbekannter Status für Aktualisierungscheck \"%s\""
+
+#: lib/plugin-update-checker/Puc/v4p10/Vcs/PluginUpdateChecker.php:98
+msgid "There is no changelog available."
+msgstr "Es steht kein Änderungsprotokoll zur Verfügung."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:204
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:289
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:596
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-banner.php:27
+msgid "License key status is unknow"
+msgstr "Lizenzschlüsselstatus ist unbekannt"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:218
+msgid "Incorrect data. Check license key."
+msgstr "Falsche Daten. Überprüfen Sie den Lizenzschlüssel."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:221
+msgid "The license key is invalid!"
+msgstr "Der Lizenzschlüssel ist ungültig!"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:224
+msgid ""
+"Order status is not completed! Please complete order before activating "
+"product."
+msgstr ""
+"Bestellstatus ist nicht abgeschlossen! Bitte schließen Sie die Bestellung "
+"ab, bevor Sie das Produkt aktivieren."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:227
+msgid "Invalid licence key or licence key inactive"
+msgstr "Ungültiger Lizenzschlüssel oder Lizenzschlüssel inaktiv"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:230
+msgid "Reached maximum allowable domains!"
+msgstr "Maximal zulässige Domains erreicht!"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:233
+msgid "Unexpected error! : "
+msgstr "Unerwarteter Fehler! : "
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:267
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:317
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:362
+msgid ""
+"Unexpected Error calling activation server! The activation did not success."
+msgstr ""
+"Unerwarteter Fehler beim Aufrufen des Aktivierungsservers! Die Aktivierung "
+"war nicht erfolgreich."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:279
+msgid "License key is activate"
+msgstr "Lizenzschlüssel ist aktiviert"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:284
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:371
+msgid "License key is expired"
+msgstr "Lizenzschlüssel ist abgelaufen"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:305
+msgid "Error: Invalid licence key or licence not active for domain."
+msgstr "Fehler: Ungültiger Lizenzschlüssel oder Lizenz nicht aktiv für Domain."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:309
+msgid "The activation did not success: "
+msgstr "Die Aktivierung war nicht erfolgreich: "
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:323
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:403
+msgid "License key not found"
+msgstr "Lizenzschlüssel nicht gefunden"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:329
+msgid "License key not found! The activation did not success."
+msgstr "Lizenzschlüssel nicht gefunden! Die Aktivierung war nicht erfolgreich."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:384
+msgid "Error: Invalid licence key or licence key already inactive."
+msgstr ""
+"Fehler: Ungültiger Lizenzschlüssel oder Lizenzschlüssel bereits inaktiv."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:388
+msgid "The deactivation did not success: "
+msgstr "Die Deaktivierung war nicht erfolgreich: "
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:397
+msgid ""
+"Unexpected Error calling deactivation server! The deactivation did not "
+"success."
+msgstr ""
+"Unerwarteter Fehler beim Aufrufen des Deaktivierungsservers! Die "
+"Deaktivierung war nicht erfolgreich."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:408
+msgid "License key not found! The deactivation did not success."
+msgstr ""
+"Lizenzschlüssel nicht gefunden! Die Deaktivierung war nicht erfolgreich."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:457
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:511
+msgid "Unexpected Error checking license key status."
+msgstr "Unerwarteter Fehler beim Überprüfen des Lizenzschlüsselstatus."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:563
+msgid "License key is active but has expired"
+msgstr "Lizenzschlüssel ist aktiv, aber abgelaufen"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:566
+msgid "License key is active"
+msgstr "Lizenzschlüssel ist aktiv"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:569
+msgid "License key is inactive"
+msgstr "Lizenzschlüssel ist inaktiv"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:572
+msgid "License key is invalid"
+msgstr "Lizenzschlüssel ungültig"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:575
+msgid "License key is deactivated"
+msgstr "Lizenzschlüssel ist deaktiviert"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:578
+msgid "License key is blocked"
+msgstr "Lizenzschlüssel ist gesperrt"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:581
+msgid ""
+"License key is active but deactivated to this domain, try activate it again."
+msgstr ""
+"Der Lizenzschlüssel ist aktiv, aber für diese Domäne deaktiviert, versuchen "
+"Sie erneut, ihn zu aktivieren."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:584
+msgid "Licence Key does not match this product."
+msgstr "Der Lizenzschlüssel stimmt nicht mit diesem Produkt überein."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:587
+msgid "Invalid Product Unique ID."
+msgstr "Ungültige eindeutige Produkt-ID."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:590
+msgid ""
+"License key is inactive. Please complete order before activating product."
+msgstr ""
+"Der Lizenzschlüssel ist inaktiv. Bitte schließen Sie die Bestellung ab, "
+"bevor Sie das Produkt aktivieren."
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:652
+msgid "License key status unknow"
+msgstr "Lizenzschlüsselstatus unbekannt"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:832
+msgid "License key activated successfully"
+msgstr "Lizenzschlüssel erfolgreich aktiviert"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:838
+msgid "Error activating license: Empty License key"
+msgstr "Fehler beim Aktivieren der Lizenz: Leerer Lizenzschlüssel"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:841
+msgid "Error activating license: "
+msgstr "Fehler beim Aktivieren der Lizenz: "
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:847
+msgid "License key was deactivated successfully"
+msgstr "Lizenzschlüssel wurde erfolgreich deaktiviert"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:853
+msgid "Error deactivating license: Empty License key"
+msgstr "Fehler beim Deaktivieren der Lizenz: Leerer Lizenzschlüssel"
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:856
+msgid "Error deactivating license: "
+msgstr "Fehler beim Deaktivieren der Lizenz: "
+
+#: lib/rc-client-license-manager/class-rc-client-license-manager.php:861
+msgid "Unrecognized message: "
+msgstr "Nicht erkannte Nachricht: "
+
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-banner.php:9
+msgid "Plugin license has expired!"
+msgstr "Plugin-Lizenz ist abgelaufen!"
+
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-banner.php:10
+msgid "Plugin updating is disabled! Extend your license now!"
+msgstr ""
+"Plugin-Aktualisierung ist deaktiviert! Verlängern Sie jetzt Ihre Lizenz!"
+
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-banner.php:19
+msgid "License key is not active"
+msgstr "Lizenzschlüssel ist nicht aktiv"
+
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-banner.php:20
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-banner.php:28
+msgid "Please activate you license key"
+msgstr "Bitte aktivieren Sie Ihren Lizenzschlüssel"
+
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-license-form.php:12
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-license-form.php:24
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-tabs.php:7
+msgid "License Key"
+msgstr "Lizenzschlüssel"
+
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-license-form.php:14
+msgid "Here you can manage your license key."
+msgstr "Hier können Sie Ihren Lizenzschlüssel verwalten."
+
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-license-form.php:32
+msgid "Status"
+msgstr "Status"
+
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-license-form.php:46
+msgid "Activate License Key"
+msgstr "Lizenzschlüssel aktivieren"
+
+#: lib/rc-client-license-manager/partials/rc-client-license-manager-license-form.php:53
+msgid "Deactivate License Key"
+msgstr "Lizenzschlüssel deaktivieren"
+
+#: lib/wp-package-updater/class-wp-package-updater.php:220
+msgid "Sorry, you are not allowed to access this page."
+msgstr "Entschuldigung, Sie haben kein Zugriff auf diese Seite."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:267
+msgid "Theme License - "
+msgstr "Thema Lizenz - "
+
+#: lib/wp-package-updater/class-wp-package-updater.php:412
+#: lib/wp-package-updater/class-wp-package-updater.php:421
+msgid ""
+"Unexpected Error! The query to retrieve the license data returned a "
+"malformed response."
+msgstr ""
+"Unerwarteter Fehler! Die Abfrage zum Abrufen der Lizenzdaten gab eine "
+"fehlerhafte Antwort zurück."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:439
+msgid "The license is already in use for this domain."
+msgstr "Die Lizenz wird bereits für diese Domain verwendet."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:442
+msgid ""
+"The license has reached the maximum number of activations and cannot be "
+"activated for this domain."
+msgstr ""
+"Die Lizenz hat die maximale Anzahl von Aktivierungen erreicht und kann für "
+"diese Domain nicht aktiviert werden."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:448
+msgid "The license is already inactive for this domain."
+msgstr "Die Lizenz ist für diese Domain bereits inaktiv."
+
+#. translators: the license expiry date
+#: lib/wp-package-updater/class-wp-package-updater.php:459
+#, php-format
+msgid "The license expired on %s and needs to be renewed to be updated."
+msgstr ""
+"Die Lizenz ist am %s abgelaufen und muss erneuert werden, um aktualisiert zu "
+"werden."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:463
+msgid "The license expired and needs to be renewed to be updated."
+msgstr ""
+"Die Lizenz ist abgelaufen und muss erneuert werden, um aktualisiert zu "
+"werden."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:469
+msgid ""
+"The license is blocked and cannot be updated anymore. Please use another "
+"license key."
+msgstr ""
+"Die Lizenz ist gesperrt und kann nicht mehr aktualisiert werden. Bitte "
+"verwenden Sie einen anderen Lizenzschlüssel."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:472
+msgid "The provided license key does not appear to be valid."
+msgstr "Der angegebene Lizenzschlüssel scheint nicht gültig zu sein."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:476
+msgid ""
+"An active license is required to update the plugin. Please provide a valid "
+"license key in Plugins > Installed Plugins."
+msgstr ""
+"Für die Aktualisierung des Plugins ist eine aktive Lizenz erforderlich. "
+"Bitte geben Sie einen gültigen Lizenzschlüssel unter Plugins > Installierte "
+"Plugins an."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:478
+msgid ""
+"An active license is required to update the theme. Please provide a valid "
+"license key in Appearence > Theme License."
+msgstr ""
+"Zum Aktualisieren des Designs ist eine aktive Lizenz erforderlich. Bitte "
+"geben Sie unter Appearence > Theme License einen gültigen Lizenzschlüssel an."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:484
+msgid ""
+"An unexpected error has occured. Please try again. If the problem persists, "
+"please contact the author of the plugin."
+msgstr ""
+"Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut. Wenn "
+"das Problem weiterhin besteht, wenden Sie sich bitte an den Autor des "
+"Plugins."
+
+#: lib/wp-package-updater/class-wp-package-updater.php:486
+msgid ""
+"An unexpected error has occured. Please try again. If the problem persists, "
+"please contact the author of the theme."
+msgstr ""
+"Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut. Wenn "
+"das Problem weiterhin besteht, wenden Sie sich bitte an den Autor des Themas."
+
+#: lib/wp-package-updater/templates/license-form.php:6
+msgid "Current license key:"
+msgstr "Aktueller Lizenzschlüssel:"
+
+#: lib/wp-package-updater/templates/license-form.php:9
+msgid "License key to change:"
+msgstr "Zu änderner Lizenzschlüssel:"
+
+#: public/class-rc-suite-public.php:99 public/class-rc-suite-public.php:118
 msgid "Hello"
 msgstr "Hallo"
 
-#: public/class-rc-suite-public.php:140
+#: public/class-rc-suite-public.php:99 public/class-rc-suite-public.php:118
 msgid "Log out"
 msgstr "Ausloggen"
 
-#: public/class-rc-suite-public.php:146
+#: public/class-rc-suite-public.php:101 public/class-rc-suite-public.php:124
 msgid "Login"
 msgstr "Einloggen"
 
+#: public/class-rc-suite-public.php:152
+#, php-format
+msgid "Desde <del>%s</del><ins>%s</ins> "
+msgstr "Desde <del>%s</del> <ins>%s</ins>"
+
+#: public/class-rc-suite-public.php:155
+#, php-format
+msgid "Desde %1$s "
+msgstr "Desde %1$s "
+
 #. Plugin Name of the plugin/theme
 msgid "RC Suite"
-msgstr ""
+msgstr "RC Suite"
 
 #. Plugin URI of the plugin/theme
 msgid "https://www.raulcarrion.com/plugins/rc-suite/"
-msgstr ""
+msgstr "https://www.raulcarrion.com/plugins/rc-suite/"
 
 #. Description of the plugin/theme
 msgid "Funcionalidades para mejorar tu sitio web."
-msgstr ""
+msgstr "Funcionalidades para mejorar tu sitio web."
 
 #. Author of the plugin/theme
 msgid "Raúl Carrión"
-msgstr ""
+msgstr "Raúl Carrión"
 
 #. Author URI of the plugin/theme
 msgid "https://www.raulcarrion.com/"
-msgstr ""
+msgstr "https://www.raulcarrion.com/"
