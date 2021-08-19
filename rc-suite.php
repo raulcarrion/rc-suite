@@ -21,7 +21,7 @@
 
 // Si se llama directamente no dejamos continuar
 if ( ! defined( 'WPINC' ) ) {
-	die;
+	die; 
 }
 
 define( 'RC_SUITE_VERSION', '1.1.7' );
