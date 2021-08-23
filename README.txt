@@ -31,7 +31,8 @@ No
 
 == Changelog ==
 
-
+= 1.1.8 =
+    - Bugfixed /blog/ redirection 301 not working
 
 = 1.1.7 =
     - Improved /blog/ redirection option
