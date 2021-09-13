@@ -32,7 +32,7 @@ No
 == Changelog ==
 
 = 1.1.9 =
-    - Minor bugfix related to category link when /blog/ is used
+    - Minor bugfix related to category link when /blog/ is used.
 
 = 1.1.8 =
     - Bugfixed /blog/ redirection 301 not working

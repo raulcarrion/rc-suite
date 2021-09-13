@@ -179,25 +179,35 @@ class Rc_Suite_Public {
 	 */
 	public function rcsu_seo_blog_posts_add_rewrite_rules( $wp_rewrite )
 	{
-		$new_rules = [
-			'blog/categoria/(.+?)/page/([0-9]{1,})/?$'   => 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1) . '&paged='. $wp_rewrite->preg_index(2),
-			'blog/categoria/(.+?)/?$'   => 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1),
-			'blog/page/([0-9]{1,})/?$' => 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1),
-			'blog/(.+?)/?$' => 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1),
-		];
-
-		if (function_exists('pll_languages_list'))
+		if (!function_exists('pll_languages_list')) 
 		{
-			foreach(pll_languages_list() as $idioma)
+			$new_rules = [
+				'blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").'category/(.+?)/page/([0-9]{1,})/?$'   => 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1) . '&paged='. $wp_rewrite->preg_index(2),
+				'blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").'category/(.+?)/?$'   => 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1),
+				'blog/page/([0-9]{1,})/?$' => 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1),
+				'blog/(.+?)/?$' => 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1),
+			];
+		}
+		else
+		{
+			$new_rules['blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").pll_translate_string("categoria", pll_default_language()).'/(.+?)/page/([0-9]{1,})/?$']  = 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1). '&paged='. $wp_rewrite->preg_index(2);
+			$new_rules['blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").pll_translate_string("categoria", pll_default_language()).'/(.+?)/?$']  = 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1);
+			$new_rules['blog/page/([0-9]{1,})/?$'] = 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1);
+			$new_rules['blog/(.+?)/?$']            = 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1);
+
+			foreach(array_diff(pll_languages_list(), array(pll_default_language())) as $idioma)
 			{
-				$new_rules[$idioma.'/blog/'.pll_translate_string("categoria", $idioma).'/(.+?)/page/([0-9]{1,})/?$']  = 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1). '&paged='. $wp_rewrite->preg_index(2);
-				$new_rules[$idioma.'/blog/'.pll_translate_string("categoria", $idioma).'/(.+?)/?$']  = 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1);
+				$new_rules[$idioma.'/blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").pll_translate_string("categoria", $idioma).'/(.+?)/page/([0-9]{1,})/?$']  = 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1). '&paged='. $wp_rewrite->preg_index(2);
+				$new_rules[$idioma.'/blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").pll_translate_string("categoria", $idioma).'/(.+?)/?$']  = 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1);
 				$new_rules[$idioma.'/blog/page/([0-9]{1,})/?$'] = 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1);
 				$new_rules[$idioma.'/blog/(.+?)/?$']            = 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1);
 			}
 		}
 
+		error_log(var_export($new_rules, true));
+
 		$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
+
 		return $wp_rewrite->rules;
 	}
 	
@@ -216,11 +226,11 @@ class Rc_Suite_Public {
 
 		if( is_object($cat) && $cat->taxonomy == 'category' && !is_admin()){
 			if (function_exists('pll__'))
-				return home_url('/blog/'.pll__("categoria").'/'. $cat->slug.'/');
+				$termlink =  home_url('/blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").pll__("categoria").'/'. $cat->slug.'/');
 			else
-				return home_url('/blog/'. $cat->slug.'/');
+				$termlink = home_url('/blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : ""). $cat->taxonomy . '/' . $cat->slug.'/');
 		}
-		
+
 		return $termlink;
 	}
 
