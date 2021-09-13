@@ -210,6 +210,20 @@ class Rc_Suite_Public {
 		return $post_link;
 	}
 
+	public function rcsu_seo_blog_posts_change_category_links( $termlink, $term_id)
+	{
+		$cat = get_term($term_id);
+
+		if( is_object($cat) && $cat->taxonomy == 'category' && !is_admin()){
+			if (function_exists('pll__'))
+				return home_url('/blog/'.pll__("categoria").'/'. $cat->slug.'/');
+			else
+				return home_url('/blog/'. $cat->slug.'/');
+		}
+		
+		return $termlink;
+	}
+
 	/*	Redirecciona a /blog si se inserta la URL sin el /blog */
 	function redirect_old_urls() {
 
@@ -223,6 +237,7 @@ class Rc_Suite_Public {
 				}
 			}
 		}
+		
 	}
 
 	/*	Cambiamos el canonical de los blogs	*/
