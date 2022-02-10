@@ -118,6 +118,13 @@ class Rc_Suite {
 		if(get_option('rc_divi_projects_disabled_enabled')==1)
 			$this->loader->add_action( 'et_project_posttype_args', $plugin_admin, 'rc_divi_projects_disabled',10,1 );
 
+		/*
+			CSS ADMIN
+		*/
+
+		if (get_option('rc_parent_css_admin_enabled'))
+			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'rc_admin_style' );
+
 	}
 
 	/**
@@ -192,6 +199,12 @@ class Rc_Suite {
 			if (in_array('wordpress-seo/wp-seo.php', apply_filters('active_plugins', get_option('active_plugins')))) {
 				$this->loader->add_filter( 'wpseo_canonical', $plugin_public , 'yoast_remove_canonical_items', 10, 2 );	
 			}
+		}
+
+		if(get_option('rcsu_gtag_enabled'))
+		{
+			$this->loader->add_action('wp_body_open', $plugin_public, 'rc_add_gtag_head',10,2 );
+			$this->loader->add_action('wp_head', $plugin_public, 'rc_add_gtag_head',10,2 );
 		}
 	}
 

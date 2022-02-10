@@ -145,31 +145,23 @@ class Rc_Suite_Public {
 		
 		sort( $regular_prices );
 
+		//Hay precios en oferta
 		if ( $prod_prices[0] !== $regular_prices[0] ) 
-			$prod_price = sprintf(__('Desde <del>%s</del><ins>%s</ins> ' . $v_product->get_price_suffix(), 'woocommerce'), wc_price( $regular_prices[0] ), wc_price( $prod_prices[0] ));
-		else
-			if ($prod_prices[0]!==$prod_prices[1])
+		{
+			if ($prod_prices[0]!==$prod_prices[1])//Precios distintos
+				$prod_price = sprintf(__('Desde <del>%s</del><ins>%s</ins> ' . $v_product->get_price_suffix(), 'woocommerce'), wc_price( $regular_prices[0] ), wc_price( $prod_prices[0] ));
+			else //Mismos precios
+			$prod_price = sprintf(__('<del>%s</del><ins>%s</ins> ' . $v_product->get_price_suffix(), 'woocommerce'), wc_price( $regular_prices[0] ), wc_price( $prod_prices[0] ));
+
+		}
+		//No hay precios en oferta
+		else 
+		{
+			if ($prod_prices[0]!==$prod_prices[1])//Precios distintos
 				$prod_price = sprintf(__('Desde %1$s ' . $v_product->get_price_suffix(), 'woocommerce'), wc_price( $prod_prices[0] ));
-			else
+			else//Mismos precios
 				$prod_price = wc_price( $prod_prices[0] ) . $v_product->get_price_suffix();
-		
-		/*// Product Price
-		$prod_prices = array( $v_product->get_variation_price( 'min', true ), 
-									$v_product->get_variation_price( 'max', true ) );
-		$prod_price = $prod_prices[0]!==$prod_prices[1] ? sprintf(__('Desde %1$s '. $v_product->get_price_suffix() , 'woocommerce'), 
-								wc_price( $prod_prices[0] ) ) : wc_price( $prod_prices[0] );
-		
-		// Regular Price
-		$regular_prices = array( $v_product->get_variation_regular_price( 'min', true ), 
-									$v_product->get_variation_regular_price( 'max', true ) );
-		sort( $regular_prices );
-		$regular_price = $regular_prices[0]!==$regular_prices[1] ? sprintf(__('Desde %1$s' . $v_product->get_price_suffix(),'woocommerce')
-								, wc_price( $regular_prices[0] ) ) : wc_price( $regular_prices[0] );
-		
-		if ( $prod_price !== $regular_price ) {
-		$prod_price = '<del>'.$regular_price.$v_product->get_price_suffix() . '</del> <ins>' . 
-								$prod_price . $v_product->get_price_suffix() . '</ins>';
-		}*/
+		}
 
 		return $prod_price;
 	}
@@ -295,5 +287,16 @@ class Rc_Suite_Public {
 		$comment_to_display = str_replace( '&amp;apos;', "'", $comment_to_display );
 		return $comment_to_display;
 	}
+
+
+	/**
+	 * ADD GOOGLE TAG MANAGER
+	 */
+	function rc_add_gtag_head() {
+		if (!empty(get_option('rcsu_gtag_head')))
+			echo get_option('rcsu_gtag_head');
+	}
+
+
 
 }

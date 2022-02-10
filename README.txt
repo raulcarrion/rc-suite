@@ -3,7 +3,7 @@ Contributors: Raúl Carrión
 Donate link: https://www.raulcarrion.com/
 Tags: comments, spam
 Requires at least: 5.0.1
-Tested up to: 5.3.2
+Tested up to: 5.9
 Stable tag: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -12,7 +12,7 @@ Suite de mejoras para WordPress para faciltar el trabajo a los desarrolladores w
 
 == Description ==
 
-Un montón de funcionalidades para que hacer una página web sea cada vez más sencillp.
+Un montón de funcionalidades para que hacer una página web sea cada vez más sencillo.
 
 == Installation ==
 
@@ -31,6 +31,13 @@ No
 
 == Changelog ==
 
+= 1.2.0 =
+    - New features
+        - Added "Google Tag Manager" tab
+        - Added check to link css for child admin site
+    - Bugfixes
+        - "From" tag not showing correctly with variable sale prices
+        
 = 1.1.9 =
     - Minor bugfix related to category link when /blog/ is used.
 

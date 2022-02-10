@@ -222,6 +222,12 @@ class Rc_Suite_Admin {
 		));
 
 	}
+
+	/* Enlazar estilos para el área de administración*/
+	function rc_admin_style() {
+		wp_enqueue_style('rc-admin-styles', get_stylesheet_directory_uri().'/admin.css');
+	}
+
 	
 }
 

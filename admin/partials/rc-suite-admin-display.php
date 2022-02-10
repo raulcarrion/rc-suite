@@ -267,9 +267,15 @@ function rc_suite_general_content() {
 	     					</legend>
 	     					<label for="rc_parent_css_enabled">
 	     						<input type="checkbox" name="rc_parent_css_enabled" id="rc_parent_css_enabled" value="1" <?php if(get_option('rc_parent_css_enabled')==1){ ?>checked="checked" <?php } ?>>
-	     						<strong>Activar</strong>
+	     						<strong><?php _e("Activate for website","rc-suite"); ?></strong>
 	     					</label>
-	     					<p class="description">Enlaza el CSS del tema padre cuando trabajamos con un tema hijo.</p>
+	     					<p class="description">Enlaza el CSS del tema padre cuando trabajamos con un tema hijo. Para la web. File must be /style.css</p>
+							 <br>
+							 <label for="rc_parent_css_enabled">
+	     						<input type="checkbox" name="rc_parent_css_admin_enabled" id="rc_parent_css_admin_enabled" value="1" <?php if(get_option('rc_parent_css_admin_enabled')==1){ ?>checked="checked" <?php } ?>>
+	     						<strong><?php _e("Activate for admin side","rc-suite"); ?></strong>
+	     					</label>
+	     					<p class="description">Enlaza el CSS del tema padre cuando trabajamos con un tema hijo. Para el área de administración. File must be /admin.css</p>
 	     				</fieldset>
 	     			</td>
 	     		</tr>
@@ -431,7 +437,7 @@ function rc_suite_general_content() {
 	     	<button name="save" class="button-primary" type="submit" value="Guardar los cambios">Guardar los cambios</button>
 	     </p>
 	     <input type="hidden" name="action" value="update" />
-	     <input type="hidden" name="page_options" value="rc_anti_cache_css_enabled,rc_anti_publi_plugins_enabled,rc_login_customer_enabled, rc_parent_css_enabled,rc_divi_projects_disabled_enabled,rcsu_woo_hide_price_range_enabled,rcsu_collapsable_megamenu_enabled,rcsu_4_2_columns_enabled, rcsu_mobile_search_centered_enabled, rcsu_remove_web_comments_enabled, rc_suite_woo_menu" />
+	     <input type="hidden" name="page_options" value="rc_anti_cache_css_enabled,rc_anti_publi_plugins_enabled,rc_login_customer_enabled, rc_parent_css_enabled, rc_parent_css_admin_enabled, rc_divi_projects_disabled_enabled,rcsu_woo_hide_price_range_enabled,rcsu_collapsable_megamenu_enabled,rcsu_4_2_columns_enabled, rcsu_mobile_search_centered_enabled, rcsu_remove_web_comments_enabled, rc_suite_woo_menu" />
 	  </form>
 	</div>
 <?php
@@ -489,6 +495,67 @@ function rc_suite_seo_content() {
 	     </p>
 	     <input type="hidden" name="action" value="update" />
 	     <input type="hidden" name="page_options" value="rcsu_seo_blog_enabled" />
+	  </form>
+	</div>
+<?php
+}
+
+/*
+* 	Pestaña GOOGLE TAG MANAGER
+*/
+
+add_action( 'rc_suite_settings_tab', 'rc_suite_gtag', 1 );
+
+function rc_suite_gtag(){
+	global $sd_active_tab;
+	?>
+		<a class="nav-tab <?php echo $sd_active_tab == 'gtag' || '' ? 'nav-tab-active' : ''; ?>" href="<?php echo admin_url( 'admin.php?page=rc-suite&tab=gtag' ); ?>"><?php _e("Google Tag Manager","rc-suite");?></a>
+	<?php
+}
+
+/*
+* 	Contenido
+*/
+
+add_action( 'rc_suite_settings_content', 'rc_suite_gtag_content' );
+
+function rc_suite_gtag_content() {
+	global $sd_active_tab;
+	if ( '' || 'gtag' != $sd_active_tab )
+		return;
+?>
+    <div class="wrap">
+	  <h2><?php _e("Google Tag Manager", "rc-suite") ?></h2>
+	  <form method="post" action="options.php">
+	     <?php wp_nonce_field('update-options') ?>
+	     <table class="form-table">
+	     	<tbody>
+	     		<tr valign="top">
+	     			<th scope="row" class="titledesc"><?php _e("Add Google Tag Manager","rc-suite") ?></th>
+	     			<td class="forminp forminp-checkbox">
+	     				<fieldset>
+	     					<legend class="screen-reader-text">
+	     						<span><?php _e("Add Google Tag","rc-suite") ?></span>
+	     					</legend>
+	     					<label for="rcsu_gtag_enabled">
+	     						<input type="checkbox" name="rcsu_gtag_enabled" id="rcsu_gtag_enabled" value="1" <?php if(get_option('rcsu_gtag_enabled')==1){ ?>checked="checked" <?php } ?>>
+	     						<strong><?php _e("Activate","rc-suite") ?></strong><br><br>
+								 <?php _e("Google Tag Manager head code","rc-suite") ?><br>
+								 <textarea cols="60" name="rcsu_gtag_head" id="rcsu_gtag_head"><?php echo (get_option('rcsu_gtag_head') ? get_option('rcsu_gtag_head'):""); ?></textarea><br>
+								 <?php _e("Google Tag Manager body code","rc-suite") ?><br>
+								<textarea cols="60" name="rcsu_gtag_body" id="rcsu_gtag_body" ><?php echo (get_option('rcsu_gtag_body') ? get_option('rcsu_gtag_body'):""); ?></textarea>
+	     					</label>
+	     					<p class="description"><?php _e("Will include Google Tag into website. Plase provide with the Google Tag ID","rc-suite") ?></p>
+	     				</fieldset>
+	     			</td>
+	     		</tr>
+	     	</tbody>
+	     </table>
+	     <p class="submit">
+	     	<button name="save" class="button-primary" type="submit" value="Guardar los cambios"><?php _e("Save changes","rc-suite") ?></button>
+	     </p>
+	     <input type="hidden" name="action" value="update" />
+	     <input type="hidden" name="page_options" value="rcsu_gtag_enabled, rcsu_gtag_body, rcsu_gtag_head" />
 	  </form>
 	</div>
 <?php
