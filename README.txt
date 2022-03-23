@@ -31,6 +31,12 @@ No
 
 == Changelog ==
 
+= 1.2.1 =
+    - New features
+        - Global text banner
+    - Fixes
+        - Clean error log
+        - Blog pagination error using DB Blog (verify pagination after update)
 = 1.2.0 =
     - New features
         - Added "Google Tag Manager" tab

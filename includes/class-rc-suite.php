@@ -200,12 +200,30 @@ class Rc_Suite {
 				$this->loader->add_filter( 'wpseo_canonical', $plugin_public , 'yoast_remove_canonical_items', 10, 2 );	
 			}
 		}
-
+		// GOOGLE TAG
 		if(get_option('rcsu_gtag_enabled'))
 		{
 			$this->loader->add_action('wp_body_open', $plugin_public, 'rc_add_gtag_head',10,2 );
 			$this->loader->add_action('wp_head', $plugin_public, 'rc_add_gtag_head',10,2 );
 		}
+
+		//GLOBAL BANNER
+		if(get_option('rcsu_banner_enabled'))
+		{
+			if (!isset($_COOKIE['wp_visitor_banner']))
+			{
+				if (get_option('rcsu_banner_custom') == 0)
+					$this->loader->add_filter('et_html_main_header', $plugin_public, 'rc_add_global_banner_filter',10,2 );
+				else
+					$this->loader->add_action('wp_head', $plugin_public, 'rc_add_global_banner_action',10,2 );
+
+				//Llamada AJAX para poder ocultarlo
+				$this->loader->add_action('wp_ajax_nopriv_ocultar-banner', $plugin_public, 'rc_ax_ocultar_banner',10,2 );
+				$this->loader->add_action('wp_ajax_ocultar-banner', $plugin_public, 'rc_ax_ocultar_banner',10,2 );
+
+			}
+		}
+		
 	}
 
 	/**

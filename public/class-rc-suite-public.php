@@ -74,6 +74,10 @@ class Rc_Suite_Public {
 		if(get_option('rcsu_collapsable_megamenu_enabled'))
 			wp_enqueue_script( $this->plugin_name . "_mobile_menu", plugin_dir_url( __FILE__ ) . 'js/rc-suite-mobile-menu.js', array( 'jquery' ), $this->version, false );
 
+			// Paso de variables a los scrips de JS
+		wp_localize_script( $this->plugin_name,'rc_suite_vars', array(	'ajax_nonce' => wp_create_nonce( 'ax_wp_action' ),
+																		'ajax_url'   => admin_url( 'admin-ajax.php' ))
+);
 	}
 
 	public function rc_anti_cache_css($content) {
@@ -176,27 +180,31 @@ class Rc_Suite_Public {
 			$new_rules = [
 				'blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").'category/(.+?)/page/([0-9]{1,})/?$'   => 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1) . '&paged='. $wp_rewrite->preg_index(2),
 				'blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").'category/(.+?)/?$'   => 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1),
-				'blog/page/([0-9]{1,})/?$' => 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1),
-				'blog/(.+?)/?$' => 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1),
+				//'blog/page/([0-9]{1,})/?$' => 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1),
+				//'blog/(.+?)/?$' => 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1),
+				'blog/page/([0-9]{1,})/?(?!?et_blog)$' 	=> 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1),
+				'blog/(?!page)(.+?)/?$'					=> 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1),
 			];
 		}
 		else
 		{
 			$new_rules['blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").pll_translate_string("categoria", pll_default_language()).'/(.+?)/page/([0-9]{1,})/?$']  = 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1). '&paged='. $wp_rewrite->preg_index(2);
 			$new_rules['blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").pll_translate_string("categoria", pll_default_language()).'/(.+?)/?$']  = 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1);
-			$new_rules['blog/page/([0-9]{1,})/?$'] = 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1);
-			$new_rules['blog/(.+?)/?$']            = 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1);
+			//$new_rules['blog/page/([0-9]{1,})/?$'] = 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1);
+			//$new_rules['blog/(.+?)/?$']            = 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1);
+			$new_rules['blog/page/([0-9]{1,})/?(?!?et_blog)$'] 	= 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1);
+			$new_rules['blog/(?!page)(.+?)/?$']            		= 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1);
 
 			foreach(array_diff(pll_languages_list(), array(pll_default_language())) as $idioma)
 			{
 				$new_rules[$idioma.'/blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").pll_translate_string("categoria", $idioma).'/(.+?)/page/([0-9]{1,})/?$']  = 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1). '&paged='. $wp_rewrite->preg_index(2);
 				$new_rules[$idioma.'/blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").pll_translate_string("categoria", $idioma).'/(.+?)/?$']  = 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1);
-				$new_rules[$idioma.'/blog/page/([0-9]{1,})/?$'] = 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1);
-				$new_rules[$idioma.'/blog/(.+?)/?$']            = 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1);
+				//$new_rules[$idioma.'/blog/page/([0-9]{1,})/?$'] = 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1);
+				//$new_rules[$idioma.'/blog/(.+?)/?$']            = 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1);
+				$new_rules[$idioma.'blog/page/([0-9]{1,})/?(?!?et_blog)$'] 	= 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1);
+				$new_rules[$idioma.'blog/(?!page)(.+?)/?$']            		= 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1);
 			}
 		}
-
-		error_log(var_export($new_rules, true));
 
 		$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
 
@@ -250,7 +258,6 @@ class Rc_Suite_Public {
 			else
 				$canonical = home_url(user_trailingslashit('blog/'. get_post_field( 'post_name')));
 		}
-		//error_log("Es es: " . get_post_field( 'post_name'));
 
 		//Use a second if statement here when needed 
 		return $canonical; 
@@ -292,11 +299,68 @@ class Rc_Suite_Public {
 	/**
 	 * ADD GOOGLE TAG MANAGER
 	 */
-	function rc_add_gtag_head() {
+	public function rc_add_gtag_head() {
 		if (!empty(get_option('rcsu_gtag_head')))
 			echo get_option('rcsu_gtag_head');
 	}
 
+	/*
+	*	ADD GLOBAL BANNER
+	*/
 
+	public function rc_add_global_banner_filter($top_header)
+	{
+		if (!empty(get_option('rcsu_banner_content')))
+		{
+			$banner = '<div id="global-banner" style="padding:'.get_option('rcsu_banner_padding').'px;background-color:'. get_option('rcsu_banner_color').'">
+							<p style="display:flex; justify-content:space-between">'.get_option('rcsu_banner_content').'<span id="banner-cerrar" style="cursor:pointer;">X</span></p>
+						</div>
+						<script>
+							jQuery(function($){
 
+								$("#banner-cerrar").on("click", function(){
+									$("#global-banner").hide(500);
+								});
+							
+							});
+						</script>';
+			$top_header = str_replace('<div class="container clearfix et_menu_container">', $banner . '<div class="container clearfix et_menu_container">', $top_header);
+		}	
+		return $top_header;
+	}
+
+	public function rc_add_global_banner_action()
+	{
+		if (!empty(get_option('rcsu_banner_content')))
+		{
+			?>
+			<div id="global-banner" style="padding:<?php echo get_option('rcsu_banner_padding') ?>px;background-color:'<?php echo get_option('rcsu_banner_color')?>;">
+				<p style="display:flex; justify-content:space-between"><?php echo get_option('rcsu_banner_content') ?><span id="banner-cerrar" style="cursor:pointer;">X</span></p>
+			</div>
+			<script>
+				jQuery(function($){
+
+					$("#banner-cerrar").on("click", function(){
+						$("#global-banner").hide(500);
+					});
+				
+				});
+			</script>
+		<?php
+		}	
+	}
+
+	function rc_ax_ocultar_banner()
+	{
+		// Verificamos el codigo de seguridad
+		$nonce = sanitize_text_field( $_POST['nonce'] );
+			
+		if ( ! wp_verify_nonce( $nonce, 'ax_wp_action' ) ) {
+			die ( __('Unathorized petition!',"rc-suite")); 
+		}
+
+		setcookie('wp_visitor_banner', serialize("NO"), 0, "/"); //Con 0 expira al final de la sesion
+		
+		wp_die();
+	}
 }

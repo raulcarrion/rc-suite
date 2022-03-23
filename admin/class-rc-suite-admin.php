@@ -62,8 +62,8 @@ class Rc_Suite_Admin {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/rc-suite-admin.js', array( 'jquery' ), $this->version, false );
 		
 		// Paso de variables a los scrips de JS
-		wp_localize_script( $this->plugin_name,'rc_suite_vars', array(
-			'ajax_nonce' => wp_create_nonce( 'ax_wp_action' ))
+		wp_localize_script( $this->plugin_name,'rc_suite_vars', array(	'ajax_nonce' => wp_create_nonce( 'ax_wp_action' ),
+																		'ajax_url'   => admin_url( 'admin-ajax.php' ))
 		);
 	}
 	

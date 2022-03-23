@@ -829,3 +829,97 @@ function rc_suite_divi_content() {
 <?php
 }
 
+
+/*
+* 	Pestaña BANNER
+*/
+
+add_action( 'rc_suite_settings_tab', 'rc_suite_banner', 1 );
+
+function rc_suite_banner(){
+	global $sd_active_tab;
+	?>
+		<a class="nav-tab <?php echo $sd_active_tab == 'banner' || '' ? 'nav-tab-active' : ''; ?>" href="<?php echo admin_url( 'admin.php?page=rc-suite&tab=banner' ); ?>"><?php _e("Banner","rc-suite");?></a>
+	<?php
+}
+
+/*
+* 	Contenido
+*/
+
+add_action( 'rc_suite_settings_content', 'rc_suite_banner_content' );
+
+function rc_suite_banner_content() {
+	global $sd_active_tab;
+	if ( '' || 'banner' != $sd_active_tab )
+		return;
+?>
+    <div class="wrap">
+	  <h2><?php _e("Banner", "rc-suite") ?></h2>
+	  <form method="post" action="options.php">
+	     <?php wp_nonce_field('update-options') ?>
+	     <table class="form-table">
+	     	<tbody>
+	     		<tr>
+	     			<th scope="row" class="titledesc"><?php _e("Global Banner","rc-suite") ?></th>
+	     			<td class="forminp forminp-checkbox">
+	     				<fieldset>
+	     					<legend class="screen-reader-text">
+	     						<span><?php _e("Use Global Banner","rc-suite") ?></span>
+	     					</legend>
+	     					<label for="rcsu_banner_enabled">
+	     						<input type="checkbox" name="rcsu_banner_enabled" id="rcsu_banner_enabled" value="1" <?php if(get_option('rcsu_banner_enabled')){ ?>checked="checked" <?php } ?>>
+	     						<strong><?php _e("Activate","rc-suite") ?></strong><br><br>
+	     					</label>
+	     					<p class="description"><?php _e("If activated, a banner will be shown globally in the site","rc-suite") ?></p>
+						</fieldset>
+	     			</td>
+	     		</tr>
+				 <tr>
+					<th scope="row" class="titledesc"><?php _e("Type","rc-suite") ?></th>
+					<td>
+						<label for="rcsu_banner_custom">
+	     						<input type="checkbox" name="rcsu_banner_custom" id="rcsu_banner_custom" value="1" <?php if(get_option('rcsu_banner_custom')){ ?>checked="checked" <?php } ?>>
+	     						<strong><?php _e("Custom header","rc-suite") ?></strong><br><br>
+	     					</label>						</label>
+						<p class="description"><?php _e("If you have a custom header try this option","rc-suite") ?></p>
+					</td>
+				</tr>
+				<tr>
+				 	<th scope="row" class="titledesc"><?php _e("Text","rc-suite") ?></th>
+					 <td>
+						<label for="rcsu_banner_content">
+							<?php wp_editor( get_option('rcsu_banner_content') , "rcsu_banner_content") ?>
+						</label>
+						<p class="description"><?php _e("Text to show","rc-suite") ?></p>
+					</td>
+				<tr>
+					<th scope="row" class="titledesc"><?php _e("Color","rc-suite") ?></th>
+					<td>
+						<label for="rcsu_banner_color">
+									<input type="color" name="rcsu_banner_color" id="rcsu_banner_color" value="<?php echo get_option('rcsu_banner_color') ?>">
+						</label>
+						<p class="description"><?php _e("Banner color","rc-suite") ?></p>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row" class="titledesc"><?php _e("Anchura","rc-suite") ?></th>
+					<td>
+						<label for="rcsu_banner_padding">
+									<input type="number" name="rcsu_banner_padding" id="rcsu_banner_padding" value="<?php echo get_option('rcsu_banner_padding') ?>">
+						</label>
+						<p class="description"><?php _e("Banner padding. A value of 0 will result in a thin banner. A value of 10 will result in a big bannner","rc-suite") ?></p>
+					</td>
+				</tr>
+	     	</tbody>
+	     </table>
+	     <p class="submit">
+	     	<button name="save" class="button-primary" type="submit" value="Guardar los cambios"><?php _e("Save changes","rc-suite") ?></button>
+	     </p>
+	     <input type="hidden" name="action" value="update" />
+	     <input type="hidden" name="page_options" value="rcsu_banner_custom, rcsu_banner_enabled, rcsu_banner_content, rcsu_banner_color, rcsu_banner_padding" />
+	  </form>
+	</div>
+<?php
+}
+
