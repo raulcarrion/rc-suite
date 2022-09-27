@@ -232,10 +232,10 @@ class Rc_Suite_Public {
 		$cat = get_term($term_id);
 
 		if( is_object($cat) && $cat->taxonomy == 'category' ){
-			if (function_exists('pll__'))
+			if (!function_exists('pll_translate_string'))
 			{
 				$categoria = !empty(get_option( 'category_base' )) ? get_option( 'category_base' ) : "category";
-				$termlink  =  home_url('/blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").pll__("categoria").'/'. $cat->slug.'/');
+				$termlink  =  home_url('/blog/'.$categoria.'/'. $cat->slug.'/');
 			}
 			else
 			{

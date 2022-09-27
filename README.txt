@@ -31,6 +31,10 @@ No
 
 == Changelog ==
 
+= 1.2.4 =
+    - Fixes
+        - Error if polylang was not installed and category base was customized
+
 = 1.2.3 =
     - Fixes
         - Erratic behavior on login background color option
