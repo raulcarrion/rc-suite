@@ -125,6 +125,12 @@ class Rc_Suite {
 		if (get_option('rc_parent_css_admin_enabled'))
 			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'rc_admin_style' );
 
+		// Cambia el logo de WP
+		if (get_option('rc_login_logo_enabled'))
+		{
+			$this->loader->add_action( 'login_enqueue_scripts', $plugin_admin, 'rc_cambia_logo',2 );
+		}
+
 	}
 
 	/**
@@ -170,7 +176,7 @@ class Rc_Suite {
 		{
 			$this->loader->add_action( 'generate_rewrite_rules', $plugin_public, 'rcsu_seo_blog_posts_add_rewrite_rules',2 );
 			$this->loader->add_filter( 'post_link', $plugin_public ,'rcsu_seo_blog_posts_change_blog_links', 10, 2 );		
-			$this->loader->add_filter( 'category_link', $plugin_public ,'rcsu_seo_blog_posts_change_category_links', 10, 2 );	
+			$this->loader->add_filter( 'term_link', $plugin_public ,'rcsu_seo_blog_posts_change_category_links', 10, 2 );	
 			$this->loader->add_filter( 'template_redirect', $plugin_public , 'redirect_old_urls', 10, 2 );	
 			
 			if (in_array('wordpress-seo/wp-seo.php', apply_filters('active_plugins', get_option('active_plugins')))) {
@@ -196,9 +202,9 @@ class Rc_Suite {
 			$this->loader->add_filter('comment_text_rss', $plugin_public,'rc_comment_display', '', 1);
 			$this->loader->add_filter('comment_excerpt', $plugin_public,'rc_comment_display', '', 1);
 
-			if (in_array('wordpress-seo/wp-seo.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+			/*if (in_array('wordpress-seo/wp-seo.php', apply_filters('active_plugins', get_option('active_plugins')))) {
 				$this->loader->add_filter( 'wpseo_canonical', $plugin_public , 'yoast_remove_canonical_items', 10, 2 );	
-			}
+			}*/
 		}
 		// GOOGLE TAG
 		if(get_option('rcsu_gtag_enabled'))

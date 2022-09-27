@@ -31,6 +31,15 @@ No
 
 == Changelog ==
 
+= 1.2.2 =
+    - Fixes
+        - Fix Category URL when /blog/ prefix is selected for post entries
+        - Fix global banner backgorund color
+        - Fix problem with Polylang and SEO /blog/ option
+        - Fix a problem with canonical YOAST SEO
+    - New features
+        - Logo customization
+
 = 1.2.1 =
     - New features
         - Global text banner

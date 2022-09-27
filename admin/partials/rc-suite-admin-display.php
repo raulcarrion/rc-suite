@@ -309,6 +309,35 @@ function rc_suite_general_content() {
 	     				</fieldset>
 	     			</td>
 	     		</tr>
+				<!-- LOGO	!-->
+				<tr valign="top">
+	     			<th scope="row" class="titledesc">Página de login</th>
+	     			<td class="forminp forminp-checkbox">
+	     				<fieldset>
+	     					<legend class="screen-reader-text">
+	     						<span>Página de login</span>
+	     					</legend>
+	     					<label for="rc_login_logo_enabled">
+	     						<input type="checkbox" name="rc_login_logo_enabled" id="rc_login_logo_enabled" value="1" <?php if(get_option('rc_login_logo_enabled')==1){ ?>checked="checked" <?php } ?>>
+	     						<strong>Logo personalizado</strong>
+								 <input id="rc_suite_logo" name="rc_suite_logo" value="<?php echo get_option('rc_suite_logo') ?>">
+	     					</label>
+	     					<p class="description">Cambia el logo de WP en la página de login. Indicar únicamente el nombre del fichero. Este deberá estar en /wp-content/uploads/</p>
+							<br>
+							<label for="rc_login_logo_enabled">
+	     						<input type="checkbox" name="rc_login_color_enabled" id="rc_login_color_enabled" value="1" <?php if(get_option('rc_login_color_enabled')==1){ ?>checked="checked" <?php } ?>>
+	     						<strong>Color de fondo</strong>
+								<input type="color" name="rcsu_login_color" id="rcsu_login_color" value="<?php echo get_option('rcsu_login_color') ?>">
+								<input type="checkbox" name="rcsu_login_color_degradado" id="rcsu_login_color_degradado" value="1" <?php if(get_option('rcsu_login_color_degradado')==1){ ?>checked="checked" <?php } ?>>
+								Aplicar degradado con:
+								<input type="color" name="rcsu_login_color2" id="rcsu_login_color2" value="<?php echo get_option('rcsu_login_color2') ?>">
+
+	     					</label>
+	     					<p class="description">Modifica el color de fondo. Si se indican los dos colores, se realizará un degradado, si no, el fondo será del color seleccionado</p>
+	     				</fieldset>
+						 
+	     			</td>
+	     		</tr>
 				 <!-- WooCommerce USER	!-->
 	     		<tr valign="top">
 	     			<th scope="row" class="titledesc">Acceso clientes para WooCommerce</th>
@@ -437,7 +466,7 @@ function rc_suite_general_content() {
 	     	<button name="save" class="button-primary" type="submit" value="Guardar los cambios">Guardar los cambios</button>
 	     </p>
 	     <input type="hidden" name="action" value="update" />
-	     <input type="hidden" name="page_options" value="rc_anti_cache_css_enabled,rc_anti_publi_plugins_enabled,rc_login_customer_enabled, rc_parent_css_enabled, rc_parent_css_admin_enabled, rc_divi_projects_disabled_enabled,rcsu_woo_hide_price_range_enabled,rcsu_collapsable_megamenu_enabled,rcsu_4_2_columns_enabled, rcsu_mobile_search_centered_enabled, rcsu_remove_web_comments_enabled, rc_suite_woo_menu" />
+	     <input type="hidden" name="page_options" value="rc_anti_cache_css_enabled,rc_anti_publi_plugins_enabled,rc_login_customer_enabled, rc_login_logo_enabled, rc_suite_logo, rc_login_color_enabled, rcsu_login_color, rcsu_login_color2, rcsu_login_color_degradado, rc_parent_css_enabled, rc_parent_css_admin_enabled, rc_divi_projects_disabled_enabled,rcsu_woo_hide_price_range_enabled,rcsu_collapsable_megamenu_enabled,rcsu_4_2_columns_enabled, rcsu_mobile_search_centered_enabled, rcsu_remove_web_comments_enabled, rc_suite_woo_menu" />
 	  </form>
 	</div>
 <?php

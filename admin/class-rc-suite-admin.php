@@ -228,6 +228,46 @@ class Rc_Suite_Admin {
 		wp_enqueue_style('rc-admin-styles', get_stylesheet_directory_uri().'/admin.css');
 	}
 
-	
-}
+	/*	Cambiar el LOGO de WP	*/
+	function rc_cambia_logo() {
+		$logo   = get_option('rc_suite_logo');
+		$color1 = get_option('rcsu_login_color');
+		$color2 = get_option('rcsu_login_color2');
+		$degradado = get_option('rcsu_login_color_degradado');
+		
 
+		if (!empty($logo) || !empty($color1))
+		{
+			?> 
+			<style type="text/css"> 
+			<?php 
+			if (!empty($logo)): ?>
+				body.login div#login h1 a {
+					background-image: url('<?php echo get_home_url() ?>/wp-content/uploads/<?php echo $logo ?>');
+					padding-bottom: 50px;
+					background-size: contain;
+					width: 100%;
+				} 
+			<?php 
+			endif; 
+			if (!empty($color1)): ?>
+				body.login
+				{
+					<?php if (!$degradado): ?>
+						background-color: <?php echo $color1 ?>;
+					<?php else: ?>
+						background: <?php echo $color1 ?>;
+						background: linear-gradient(180deg, <?php echo $color1 ?> 0%, <?php echo $color2 ?> 100%);
+					<?php endif; ?>
+				}
+			<?php endif; ?>
+			</style>
+			<?php
+
+			function my_custom_login_url( $url ) {
+				return get_home_url();
+			}
+			add_filter( 'login_headerurl', 'my_custom_login_url', 10, 1 );
+		}
+	}
+}

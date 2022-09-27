@@ -175,11 +175,14 @@ class Rc_Suite_Public {
 	 */
 	public function rcsu_seo_blog_posts_add_rewrite_rules( $wp_rewrite )
 	{
+
 		if (!function_exists('pll_languages_list')) 
 		{
+			$categoria = !empty(get_option( 'category_base' )) ? get_option( 'category_base' ) : "category";
+
 			$new_rules = [
-				'blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").'category/(.+?)/page/([0-9]{1,})/?$'   => 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1) . '&paged='. $wp_rewrite->preg_index(2),
-				'blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").'category/(.+?)/?$'   => 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1),
+				'blog/'.$categoria.'/(.+?)/page/([0-9]{1,})/?$'   => 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1) . '&paged='. $wp_rewrite->preg_index(2),
+				'blog/'.$categoria.'/(.+?)/?$'   				 => 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1),
 				//'blog/page/([0-9]{1,})/?$' => 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1),
 				//'blog/(.+?)/?$' => 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1),
 				'blog/page/([0-9]{1,})/?(?!?et_blog)$' 	=> 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1),
@@ -188,8 +191,10 @@ class Rc_Suite_Public {
 		}
 		else
 		{
-			$new_rules['blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").pll_translate_string("categoria", pll_default_language()).'/(.+?)/page/([0-9]{1,})/?$']  = 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1). '&paged='. $wp_rewrite->preg_index(2);
-			$new_rules['blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").pll_translate_string("categoria", pll_default_language()).'/(.+?)/?$']  = 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1);
+			$categoria = (!empty(get_option( 'category_base' )) ? pll_translate_string(get_option( 'category_base' ), pll_default_language()) : pll_translate_string("categoria", pll_default_language()));
+
+			$new_rules['blog/'.$categoria.'/(.+?)/page/([0-9]{1,})/?$']  	= 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1). '&paged='. $wp_rewrite->preg_index(2);
+			$new_rules['blog/'.$categoria.'/(.+?)/?$']  					= 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1);
 			//$new_rules['blog/page/([0-9]{1,})/?$'] = 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1);
 			//$new_rules['blog/(.+?)/?$']            = 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1);
 			$new_rules['blog/page/([0-9]{1,})/?(?!?et_blog)$'] 	= 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1);
@@ -197,12 +202,14 @@ class Rc_Suite_Public {
 
 			foreach(array_diff(pll_languages_list(), array(pll_default_language())) as $idioma)
 			{
-				$new_rules[$idioma.'/blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").pll_translate_string("categoria", $idioma).'/(.+?)/page/([0-9]{1,})/?$']  = 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1). '&paged='. $wp_rewrite->preg_index(2);
-				$new_rules[$idioma.'/blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").pll_translate_string("categoria", $idioma).'/(.+?)/?$']  = 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1);
+				$categoria = (!empty(get_option( 'category_base' )) ? pll_translate_string(get_option( 'category_base' ), $idioma) : pll_translate_string("categoria", $idioma));
+
+				$new_rules[$idioma.'/blog/'.$categoria.'/(.+?)/page/([0-9]{1,})/?$']  	= 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1). '&paged='. $wp_rewrite->preg_index(2);
+				$new_rules[$idioma.'/blog/'.$categoria.'/(.+?)/?$']  					= 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1);
 				//$new_rules[$idioma.'/blog/page/([0-9]{1,})/?$'] = 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1);
 				//$new_rules[$idioma.'/blog/(.+?)/?$']            = 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1);
-				$new_rules[$idioma.'blog/page/([0-9]{1,})/?(?!?et_blog)$'] 	= 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1);
-				$new_rules[$idioma.'blog/(?!page)(.+?)/?$']            		= 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1);
+				$new_rules[$idioma.'/blog/page/([0-9]{1,})/?(?!?et_blog)$'] 	= 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1);
+				$new_rules[$idioma.'/blog/(?!page)(.+?)/?$']            		= 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1);
 			}
 		}
 
@@ -224,11 +231,17 @@ class Rc_Suite_Public {
 	{
 		$cat = get_term($term_id);
 
-		if( is_object($cat) && $cat->taxonomy == 'category' && !is_admin()){
+		if( is_object($cat) && $cat->taxonomy == 'category' ){
 			if (function_exists('pll__'))
-				$termlink =  home_url('/blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").pll__("categoria").'/'. $cat->slug.'/');
+			{
+				$categoria = !empty(get_option( 'category_base' )) ? get_option( 'category_base' ) : "category";
+				$termlink  =  home_url('/blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : "").pll__("categoria").'/'. $cat->slug.'/');
+			}
 			else
-				$termlink = home_url('/blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : ""). $cat->taxonomy . '/' . $cat->slug.'/');
+			{
+				$categoria = (!empty(get_option( 'category_base' )) ? pll_translate_string(get_option( 'category_base' ), pll_default_language()) : pll_translate_string("categoria", pll_default_language()));
+				$termlink  = home_url('/blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : ""). $cat->taxonomy . '/' . $cat->slug.'/');
+			}
 		}
 
 		return $termlink;
@@ -334,8 +347,11 @@ class Rc_Suite_Public {
 		if (!empty(get_option('rcsu_banner_content')))
 		{
 			?>
-			<div id="global-banner" style="padding:<?php echo get_option('rcsu_banner_padding') ?>px;background-color:'<?php echo get_option('rcsu_banner_color')?>;">
-				<p style="display:flex; justify-content:space-between"><?php echo get_option('rcsu_banner_content') ?><span id="banner-cerrar" style="cursor:pointer;">X</span></p>
+			<div id="global-banner" style="padding:<?php echo get_option('rcsu_banner_padding') ?>px;background-color:<?php echo get_option('rcsu_banner_color')?>;">
+				<div style="display:flex; justify-content:space-between">
+					<div style="width:100%"><?php echo get_option('rcsu_banner_content') ?></div>
+					<span id="banner-cerrar" style="cursor:pointer; color:white;">X</span>
+				</div>
 			</div>
 			<script>
 				jQuery(function($){
