@@ -234,9 +234,11 @@ class Rc_Suite_Admin {
 		$color1 = get_option('rcsu_login_color');
 		$color2 = get_option('rcsu_login_color2');
 		$degradado = get_option('rcsu_login_color_degradado');
+		$hay_color = get_option('rc_login_color_enabled');
+
 		
 
-		if (!empty($logo) || !empty($color1))
+		if (!empty($logo) || $hay_color)
 		{
 			?> 
 			<style type="text/css"> 
@@ -250,7 +252,7 @@ class Rc_Suite_Admin {
 				} 
 			<?php 
 			endif; 
-			if (!empty($color1)): ?>
+			if ($hay_color): ?>
 				body.login
 				{
 					<?php if (!$degradado): ?>

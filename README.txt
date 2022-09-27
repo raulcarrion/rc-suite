@@ -31,6 +31,9 @@ No
 
 == Changelog ==
 
+= 1.2.3 =
+    - Fixes
+        - Erratic behavior on login background color option
 = 1.2.2 =
     - Fixes
         - Fix Category URL when /blog/ prefix is selected for post entries
