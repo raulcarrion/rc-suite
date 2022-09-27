@@ -31,6 +31,10 @@ No
 
 == Changelog ==
 
+= 1.2.5 =
+    - Fixes
+        - Fix category name if polylang is used and category base is customized
+
 = 1.2.4 =
     - Fixes
         - Error if polylang was not installed and category base was customized

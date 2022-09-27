@@ -239,8 +239,8 @@ class Rc_Suite_Public {
 			}
 			else
 			{
-				$categoria = (!empty(get_option( 'category_base' )) ? pll_translate_string(get_option( 'category_base' ), pll_default_language()) : pll_translate_string("categoria", pll_default_language()));
-				$termlink  = home_url('/blog/'.(!empty(get_option( 'category_base' )) ? get_option( 'category_base' ) .'/' : ""). $cat->taxonomy . '/' . $cat->slug.'/');
+				$categoria = (!empty(get_option( 'category_base' )) ? pll_translate_string(get_option( 'category_base' ), pll_get_term_language($term_id)) : pll_translate_string("category", pll_get_term_language($term_id)));
+				$termlink  = home_url('/blog/'. $categoria . '/' . $cat->slug.'/');
 			}
 		}
 
