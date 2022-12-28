@@ -362,7 +362,17 @@ function rc_suite_general_content() {
 								</select>
 	     					</label>
 	     					<p class="description">Añade en el menú selecionado el acceso al área de clientes, mostrando el nombre de usuario cuando está logueado.</p>
-	     				</fieldset>
+	     					<label for="rc_login_customer_icon_enabled">
+	     						<input type="checkbox" name="rc_login_customer_icon_enabled" id="rc_login_customer_icon_enabled" value="1" <?php if(get_option('rc_login_customer_icon_enabled')==1){ ?>checked="checked" <?php } ?>>
+	     						<strong>Mostrar como icono</strong>
+	     					</label>
+	     					<p class="description">Indica una ruta a una imagen si no quieres el avatar del usuario</p>
+							<label for="rc_login_customer_icon_enabled">
+	     						<input type="text" name="rc_login_customer_icon_path" id="rc_login_customer_icon_path" value="<?php echo get_option('rc_login_customer_icon_path')?>">
+	     						<strong>Icono personalizado</strong>
+	     					</label>
+	     					<p class="description">Indica la ruta como /wp-content/uploads/...</p>
+						</fieldset>
 	     			</td>
 	     		</tr>
 	     		<tr valign="top">
@@ -466,7 +476,7 @@ function rc_suite_general_content() {
 	     	<button name="save" class="button-primary" type="submit" value="Guardar los cambios">Guardar los cambios</button>
 	     </p>
 	     <input type="hidden" name="action" value="update" />
-	     <input type="hidden" name="page_options" value="rc_anti_cache_css_enabled,rc_anti_publi_plugins_enabled,rc_login_customer_enabled, rc_login_logo_enabled, rc_suite_logo, rc_login_color_enabled, rcsu_login_color, rcsu_login_color2, rcsu_login_color_degradado, rc_parent_css_enabled, rc_parent_css_admin_enabled, rc_divi_projects_disabled_enabled,rcsu_woo_hide_price_range_enabled,rcsu_collapsable_megamenu_enabled,rcsu_4_2_columns_enabled, rcsu_mobile_search_centered_enabled, rcsu_remove_web_comments_enabled, rc_suite_woo_menu" />
+	     <input type="hidden" name="page_options" value="rc_anti_cache_css_enabled,rc_anti_publi_plugins_enabled,rc_login_customer_enabled, rc_login_logo_enabled, rc_suite_logo, rc_login_color_enabled, rcsu_login_color, rcsu_login_color2, rcsu_login_color_degradado, rc_parent_css_enabled, rc_parent_css_admin_enabled, rc_divi_projects_disabled_enabled,rcsu_woo_hide_price_range_enabled,rcsu_collapsable_megamenu_enabled,rcsu_4_2_columns_enabled, rcsu_mobile_search_centered_enabled, rcsu_remove_web_comments_enabled, rc_suite_woo_menu, rc_login_customer_icon_enabled, rc_login_customer_icon_path" />
 	  </form>
 	</div>
 <?php

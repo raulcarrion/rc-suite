@@ -189,7 +189,7 @@ class Rc_Suite_Reemplazador {
 	 */
 	public function get_table($index) {
     
-        return is_null($this->reemplazos) ? "" : array_keys($this->reemplazos[$index])[0] ;
+        return is_null($this->reemplazos) || !is_array($this->reemplazos) ? "" : array_keys($this->reemplazos[$index])[0] ;
     }
 
     /**
@@ -197,7 +197,7 @@ class Rc_Suite_Reemplazador {
 	 */
 	public function get_field($index) {
 
-        return is_null($this->reemplazos) ? "" : $this->reemplazos[$index][array_keys($this->reemplazos[$index])[0]][0];
+        return is_null($this->reemplazos) || !is_array($this->reemplazos) ? "" : $this->reemplazos[$index][array_keys($this->reemplazos[$index])[0]][0];
      }
 
    /**
@@ -205,7 +205,7 @@ class Rc_Suite_Reemplazador {
 	 */
 	public function get_source($index) {
 
-        return is_null($this->reemplazos) ? "" : $this->reemplazos[$index][array_keys($this->reemplazos[$index])[0]][1];
+        return is_null($this->reemplazos) || !is_array($this->reemplazos) ? "" : $this->reemplazos[$index][array_keys($this->reemplazos[$index])[0]][1];
      }
 
    /**
@@ -213,6 +213,6 @@ class Rc_Suite_Reemplazador {
 	 */
 	public function get_destination($index) {
 
-        return is_null($this->reemplazos) ? "" : $this->reemplazos[$index][array_keys($this->reemplazos[$index])[0]][2];
+        return is_null($this->reemplazos) || !is_array($this->reemplazos) ? "" : $this->reemplazos[$index][array_keys($this->reemplazos[$index])[0]][2];
     }    
 }

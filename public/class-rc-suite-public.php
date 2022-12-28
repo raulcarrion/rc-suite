@@ -99,10 +99,22 @@ class Rc_Suite_Public {
 
 		global $current_user;
 
+		$icono   = get_option('rc_login_customer_icon_enabled');
+
 		if (is_user_logged_in())
-			$return = '<li id="menu-item-rc" class="menu-item"><a class="rc-mi-cuenta" href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">' . __('Hello', 'rc-suite'). ' ' . $current_user->display_name . '</a> (<a class="salir-link" href="'. wp_logout_url( home_url() ) .'">' . __('Log out', 'rc-suite') . '</a>)</li>';
+		{
+			if ($icono)
+				$return = '<li id="menu-item-rc" class="menu-item"><a class="rc-mi-cuenta" href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '"><img src="' . esc_url( get_avatar_url( get_current_user_id() ) ) . '" /></a></li>';
+			else
+				$return = '<li id="menu-item-rc" class="menu-item"><a class="rc-mi-cuenta" href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">' . __('Hello', 'rc-suite'). ' ' . $current_user->display_name . '</a> (<a class="salir-link" href="'. wp_logout_url( home_url() ) .'">' . __('Log out', 'rc-suite') . '</a>)</li>';
+		}
 		else
-			$return = '<li id="menu-item-rc" class="menu-item"><a href="' . site_url( "/login/" ) . '">' . __('Login', 'rc-suite') . '</a></li>';
+		{
+			if ($icono)
+				$return = '<li id="menu-item-rc" class="menu-item"><a href="' . site_url( "/login/" ) . '">' . '<img src="' . esc_url( get_avatar_url( 0 ) ) . '" />'. '</a></li>';
+			else
+				$return = '<li id="menu-item-rc" class="menu-item"><a href="' . site_url( "/login/" ) . '">' . __('Login', 'rc-suite') . '</a></li>';
+		}
 
 		return $return;
 	}
@@ -117,13 +129,32 @@ class Rc_Suite_Public {
 
 		$id_menu            = (is_object($args->menu) ? $args->menu->term_id : $args->menu);
 		$id_menu_selected   = get_option('rc_suite_woo_menu');
+		$icono   			= get_option('rc_login_customer_icon_enabled');
+		$imagen_icono		= (!empty(get_option('rc_login_customer_icon_path')) ? get_option('rc_login_customer_icon_path') : esc_url( get_avatar_url( get_current_user_id(), array("size" => 32) ) )) ;
 
 		if ($id_menu == $id_menu_selected)
 		{
-			if (is_user_logged_in() ) 
+			/*if (is_user_logged_in() ) 
 				$items .= '<li id="menu-item-rc" class="menu-item"><a class="rc-mi-cuenta" href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">' . __('Hello', 'rc-suite'). ' ' . $current_user->display_name . '</a> (<a class="salir-link" href="'. wp_logout_url( get_permalink( wc_get_page_id( 'myaccount' ) ) ) .'">' . __('Log out', 'rc-suite') . '</a>)</li>';
 			else
 				$items .= '<li id="menu-item-rc" class="menu-item"><a href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">' . __('Login', 'rc-suite') . '</a></li>';
+			*/
+
+			if (is_user_logged_in())
+			{
+				if ($icono)
+					$items .= '<li id="menu-item-rc" class="menu-item"><a class="rc-mi-cuenta" href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '"><img style="max-width:32px" src="' . $imagen_icono  . '" /></a></li>';
+				else
+					$items .= '<li id="menu-item-rc" class="menu-item"><a class="rc-mi-cuenta" href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">' . __('Hello', 'rc-suite'). ' ' . $current_user->display_name . '</a> (<a class="salir-link" href="'. wp_logout_url( home_url() ) .'">' . __('Log out', 'rc-suite') . '</a>)</li>';
+			}
+			else
+			{
+				if ($icono)
+					$items .= '<li id="menu-item-rc" class="menu-item"><a href="' . site_url( "/login/" ) . '">' . '<img src="' . $imagen_icono . '" style="max-width:32px" />'. '</a></li>';
+				else
+					$items .= '<li id="menu-item-rc" class="menu-item"><a href="' . site_url( "/login/" ) . '">' . __('Login', 'rc-suite') . '</a></li>';
+			}
+		
 		}
 
 		return $items;
@@ -181,35 +212,33 @@ class Rc_Suite_Public {
 			$categoria = !empty(get_option( 'category_base' )) ? get_option( 'category_base' ) : "category";
 
 			$new_rules = [
-				'blog/'.$categoria.'/(.+?)/page/([0-9]{1,})/?$'   => 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1) . '&paged='. $wp_rewrite->preg_index(2),
-				'blog/'.$categoria.'/(.+?)/?$'   				 => 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1),
-				//'blog/page/([0-9]{1,})/?$' => 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1),
-				//'blog/(.+?)/?$' => 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1),
-				'blog/page/([0-9]{1,})/?(?!?et_blog)$' 	=> 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1),
-				'blog/(?!page)(.+?)/?$'					=> 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1),
+				'blog/'.$categoria.'/(.+?)/page/([0-9]{1,})/?$' => 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1) . '&paged='. $wp_rewrite->preg_index(2),
+				'blog/'.$categoria.'/(.+?)/?$'   				=> 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1),
+
+				'blog/page/([0-9]{1,})/?(?!?et_blog)$' 			=> 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1),
+				'blog/(?!page)(.+?)/?$'							=> 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1),
 			];
 		}
 		else
 		{
-			$categoria = (!empty(get_option( 'category_base' )) ? pll_translate_string(get_option( 'category_base' ), pll_default_language()) : pll_translate_string("categoria", pll_default_language()));
+			$categoria = (!empty(get_option( 'category_base' )) ? pll_translate_string(get_option( 'category_base' ), pll_default_language()) : pll_translate_string("category", pll_default_language()));
+			$idioma_def = pll_default_language();
 
-			$new_rules['blog/'.$categoria.'/(.+?)/page/([0-9]{1,})/?$']  	= 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1). '&paged='. $wp_rewrite->preg_index(2);
-			$new_rules['blog/'.$categoria.'/(.+?)/?$']  					= 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1);
-			//$new_rules['blog/page/([0-9]{1,})/?$'] = 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1);
-			//$new_rules['blog/(.+?)/?$']            = 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1);
-			$new_rules['blog/page/([0-9]{1,})/?(?!?et_blog)$'] 	= 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1);
-			$new_rules['blog/(?!page)(.+?)/?$']            		= 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1);
+			$new_rules['blog/'.$categoria.'/(.+?)/page/([0-9]{1,})/?$']  	= 'index.php?lang='.$idioma_def.'&taxonomy=category&term='. $wp_rewrite->preg_index(1). '&paged='. $wp_rewrite->preg_index(2);
+			$new_rules['blog/'.$categoria.'/(.+?)/?$']  					= 'index.php?lang='.$idioma_def.'&taxonomy=category&term='. $wp_rewrite->preg_index(1);
+			
+			$new_rules['blog/page/([0-9]{1,})/?(?!?et_blog)$'] 	= 'index.php?lang='.$idioma_def.'&post_type=post&paged='. $wp_rewrite->preg_index(1);
+			$new_rules['blog/(?!page)(.+?)/?$']            		= 'index.php?lang='.$idioma_def.'&post_type=post&name='. $wp_rewrite->preg_index(1);
 
 			foreach(array_diff(pll_languages_list(), array(pll_default_language())) as $idioma)
 			{
-				$categoria = (!empty(get_option( 'category_base' )) ? pll_translate_string(get_option( 'category_base' ), $idioma) : pll_translate_string("categoria", $idioma));
+				$categoria = (!empty(get_option( 'category_base' )) ? pll_translate_string(get_option( 'category_base' ), $idioma) : pll_translate_string("category", $idioma));
 
-				$new_rules[$idioma.'/blog/'.$categoria.'/(.+?)/page/([0-9]{1,})/?$']  	= 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1). '&paged='. $wp_rewrite->preg_index(2);
-				$new_rules[$idioma.'/blog/'.$categoria.'/(.+?)/?$']  					= 'index.php?taxonomy=category&term='. $wp_rewrite->preg_index(1);
-				//$new_rules[$idioma.'/blog/page/([0-9]{1,})/?$'] = 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1);
-				//$new_rules[$idioma.'/blog/(.+?)/?$']            = 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1);
-				$new_rules[$idioma.'/blog/page/([0-9]{1,})/?(?!?et_blog)$'] 	= 'index.php?post_type=post&paged='. $wp_rewrite->preg_index(1);
-				$new_rules[$idioma.'/blog/(?!page)(.+?)/?$']            		= 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1);
+				$new_rules[$idioma.'/blog/'.$categoria.'/(.+?)/page/([0-9]{1,})/?$']  	= 'index.php?lang='.$idioma.'&taxonomy=category&term='. $wp_rewrite->preg_index(1). '&paged='. $wp_rewrite->preg_index(2);
+				$new_rules[$idioma.'/blog/'.$categoria.'/(.+?)/?$']  					= 'index.php?lang='.$idioma.'&taxonomy=category&term='. $wp_rewrite->preg_index(1);
+				
+				$new_rules[$idioma.'/blog/page/([0-9]{1,})/?(?!?et_blog)$'] 	= 'index.php?lang='.$idioma.'&post_type=post&paged='. $wp_rewrite->preg_index(1);
+				$new_rules[$idioma.'/blog/(?!page)(.+?)/?$']            		= 'index.php?lang='.$idioma.'&post_type=post&name='. $wp_rewrite->preg_index(1);
 			}
 		}
 

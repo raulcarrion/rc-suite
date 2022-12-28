@@ -31,6 +31,14 @@ No
 
 == Changelog ==
 
+= 1.2.6 =
+    - New features
+        - WooCommerce login menu can be an icon
+    - Fixes
+        - Minor category default translation fix
+        - Fix with polylang, /blog/ prefix and category sharing same slug
+        - Replacer fix
+
 = 1.2.5 =
     - Fixes
         - Fix category name if polylang is used and category base is customized
