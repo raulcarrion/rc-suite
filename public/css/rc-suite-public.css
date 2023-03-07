@@ -5,20 +5,3 @@
 #menu-item-rc{
     margin-bottom:10.5px;
 }
-
-.g12-hide-mobile-menu.et_pb_menu .et_pb_menu__menu,.g12-hide-mobile-menu.et_pb_fullwidth_menu .et_pb_menu__menu {
-    display: flex!important;
-}
- 
-.g12-hide-mobile-menu .et_mobile_nav_menu {
-    display: none !important;
-}
-
-/* El menú esté en formato lista */
-.g12-menu-list ul{
-    flex-direction: column;
-}
-
-.g12-menu-list .et_pb_menu__wrap{
-    justify-content: flex-start !important;
-}

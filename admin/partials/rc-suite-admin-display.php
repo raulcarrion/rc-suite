@@ -818,7 +818,7 @@ function tags_content() {
 }
 
 /*
-* 	Pestaña DIVI
+* 	Pestaña FUNCIONES Y CLASES
 */
 
 add_action( 'rc_suite_settings_tab', 'rc_suite_divi', 1 );
@@ -826,7 +826,7 @@ add_action( 'rc_suite_settings_tab', 'rc_suite_divi', 1 );
 function rc_suite_divi(){
 	global $sd_active_tab;
 	?>
-		<a class="nav-tab <?php echo $sd_active_tab == 'divi' || '' ? 'nav-tab-active' : ''; ?>" href="<?php echo admin_url( 'admin.php?page=rc-suite&tab=divi' ); ?>"><?php _e("Divi clases","rc-suite");?></a>
+		<a class="nav-tab <?php echo $sd_active_tab == 'divi' || '' ? 'nav-tab-active' : ''; ?>" href="<?php echo admin_url( 'admin.php?page=rc-suite&tab=divi' ); ?>"><?php _e("Clases y Funciones","rc-suite");?></a>
 	<?php
 }
 
@@ -842,7 +842,17 @@ function rc_suite_divi_content() {
 		return;
 ?>
     <div class="wrap">
-		<h2><?php _e("Divi clases", "rc-suite") ?></h2>
+	<form method="post" action="options.php">
+	    <?php wp_nonce_field('update-options') ?>
+		<h2><?php _e("Clases y Funciones", "rc-suite") ?></h2>
+		<h3><?php _e("Clases específicas de DIVI", "rc-suite") ?></h3>
+		<label for="rcsu_activar_css_clases">
+			<input type="checkbox" name="rcsu_activar_css_clases" id="rcsu_activar_css_clases" value="1" <?php if(get_option('rcsu_activar_css_clases') || get_option('rcsu_activar_css_clases', "not-exist") == "not-exist"){ ?>checked="checked" <?php } ?>>
+			<strong><?php _e("Activate","rc-suite") ?></strong>
+		</label>
+		<p>
+			<?php _e("Estas clases se deberán utilizar sobre los elementos indicados, siempre teniendo Divi como tema activo.", "rc-suite") ?>
+		</p>
 		<table class="wp-list-table widefat fixed striped table-view-list posts">
 			<thead>
 				<tr>
@@ -864,6 +874,67 @@ function rc_suite_divi_content() {
 				</tr>
 			</tbody>
 		</table>
+
+		<h3><?php _e("Funciones de JS", "rc-suite") ?></h3>
+		<label for="rcsu_activar_css_clases">
+			<input type="checkbox" name="rc_suite_activar_funciones_js" id="rc_suite_activar_funciones_js" value="1" <?php if(get_option('rc_suite_activar_funciones_js')){ ?>checked="checked" <?php } ?>>
+			<strong><?php _e("Activate","rc-suite") ?></strong>
+		</label>
+		<p>
+			<?php _e("Estas funciones cubren diferentes funcionalidades que se van desarrollando", "rc-suite") ?>
+		</p>
+		<table class="wp-list-table widefat fixed striped table-view-list posts">
+			<thead>
+				<tr>
+					<th style="width:10%;"><?php _e("Función", "rc-suite") ?></th>
+					<th><?php _e("Detalle", "rc-suite") ?></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><?php _e("SELECTOR", "rc-suite") ?></td>
+					<td>
+					Esta función permite definir elementos selectores, que, cuando se haga click sobre ellos, o al pasar el ratón, harán aparecer un elemento de destino.
+					<br>Para poder organizar esto tendremos que:
+						<ul style="list-style:initial; padding-left:30px;">
+							<li>Definir un grupo</li>
+							Mediante un atributo en <strong>cada uno de los elementos</strong>, agruparemos todos los elementos en un mismo grupo. Esto nos permite usar esta funcion, en distintos grupos de elementos, dentro de la misma página.
+							<br>
+							<br>
+							ATRIBUTO=data-grupo<br>
+							VALOR   =Nombre del grupo<br><br>
+
+							<li>Asignar una clase a los <strong>selectores</strong> y definir el elemento sobre el que interactuaremos	</li>
+							Nos permitirá identificar cuales son los elementos con los que podemos interaccionar. 
+							<br>
+							CLASE=boton-seleccion<br><br>
+							No permitirá indicar cual es el elemento con el que interaccionará este selector en concreto
+							<br>
+							ATRIBUTO=data-destino<br>
+							VALOR=ID del elemento DESTINO.<br><br>
+
+							<li>Asignar una clase a los <strong>destinos</strong> y definir un ID único</li>
+							Nos permitirá definir cuales son los elementos que se mostrarán u ocultarán							
+							<br>CLASE=destino-seleccionable<br>
+							No permitirá indicar cual es identificador del elemento
+							<br>ID=ID del elemento DESTINO<br><br>
+
+						</ul>
+
+						Por último, podremo definir cual es el elemento inicial seleccionado poniendo la clase </strong>seleccionado</strong>
+						<br><br><strong>NOTA</strong>: Para poder definir ATRIBUTOS, es necesario el plugin Divi Supreme Pro, y habilitar "Enable Divi Custom Attributes"
+ 
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p class="submit">
+	     	<button name="save" class="button-primary" type="submit" value="Guardar los cambios">Guardar los cambios</button>
+	     </p>
+	     <input type="hidden" name="action" value="update" />
+	     <input type="hidden" name="page_options" value="rcsu_activar_css_clases, rc_suite_activar_funciones_js" />
+	  </form>
 	</div>
 <?php
 }

@@ -60,6 +60,14 @@ class Rc_Suite_Public {
 		if(get_option('rcsu_mobile_search_centered_enabled'))
 			wp_enqueue_style( $this->plugin_name . "_mobile_centerd", plugin_dir_url( __FILE__ ) . 'css/rc-suite-mobile-centered.css',array() , $this->version, false  );
 	
+		// Clases DIVI
+		if(get_option('rcsu_activar_css_clases') || get_option('rcsu_activar_css_clases', "not-exist") == "not-exist")
+			wp_enqueue_style( $this->plugin_name . "_divi_classes", plugin_dir_url( __FILE__ ) . 'css/rc-suite-divi-classes.css',array() , $this->version, false  );
+
+		// Funciones JS
+		if(get_option('rc_suite_activar_funciones_js'))
+			wp_enqueue_style( $this->plugin_name . "_js_functions_css", plugin_dir_url( __FILE__ ) . 'css/rc-suite-js-functions.css',array() , $this->version, false  );
+
 	}
 
 	/**
@@ -73,6 +81,11 @@ class Rc_Suite_Public {
 		
 		if(get_option('rcsu_collapsable_megamenu_enabled'))
 			wp_enqueue_script( $this->plugin_name . "_mobile_menu", plugin_dir_url( __FILE__ ) . 'js/rc-suite-mobile-menu.js', array( 'jquery' ), $this->version, false );
+
+		//	 Funciones JS
+		if(get_option('rc_suite_activar_funciones_js'))
+			wp_enqueue_script( $this->plugin_name . "_js_functions", plugin_dir_url( __FILE__ ) . 'js/rc-suite-js-functions.js', array( 'jquery' ), $this->version, false );
+
 
 			// Paso de variables a los scrips de JS
 		wp_localize_script( $this->plugin_name,'rc_suite_vars', array(	'ajax_nonce' => wp_create_nonce( 'ax_wp_action' ),
@@ -111,9 +124,9 @@ class Rc_Suite_Public {
 		else
 		{
 			if ($icono)
-				$return = '<li id="menu-item-rc" class="menu-item"><a href="' . site_url( "/login/" ) . '">' . '<img src="' . esc_url( get_avatar_url( 0 ) ) . '" />'. '</a></li>';
+				$return = '<li id="menu-item-rc" class="menu-item"><a href="' . wc_get_page_permalink( 'myaccount' ) . '">' . '<img src="' . esc_url( get_avatar_url( 0 ) ) . '" />'. '</a></li>';
 			else
-				$return = '<li id="menu-item-rc" class="menu-item"><a href="' . site_url( "/login/" ) . '">' . __('Login', 'rc-suite') . '</a></li>';
+				$return = '<li id="menu-item-rc" class="menu-item"><a href="' . wc_get_page_permalink( 'myaccount' ) . '">' . __('Login', 'rc-suite') . '</a></li>';
 		}
 
 		return $return;
@@ -150,9 +163,9 @@ class Rc_Suite_Public {
 			else
 			{
 				if ($icono)
-					$items .= '<li id="menu-item-rc" class="menu-item"><a href="' . site_url( "/login/" ) . '">' . '<img src="' . $imagen_icono . '" style="max-width:32px" />'. '</a></li>';
+					$items .= '<li id="menu-item-rc" class="menu-item"><a href="' . wc_get_page_permalink( 'myaccount' ) . '">' . '<img src="' . $imagen_icono . '" style="max-width:32px" />'. '</a></li>';
 				else
-					$items .= '<li id="menu-item-rc" class="menu-item"><a href="' . site_url( "/login/" ) . '">' . __('Login', 'rc-suite') . '</a></li>';
+					$items .= '<li id="menu-item-rc" class="menu-item"><a href="' . wc_get_page_permalink( 'myaccount' ) . '">' . __('Login', 'rc-suite') . '</a></li>';
 			}
 		
 		}
@@ -292,13 +305,34 @@ class Rc_Suite_Public {
 		
 	}
 
-	/*	Cambiamos el canonical de los blogs	*/
-	function yoast_remove_canonical_items( $canonical ) {
-		if ( is_singular('post') ) {
+	/*	Cambiamos el canonical de los blogs	solo si se ha seleccionado afgregar /blog/*/
+	function yoast_remove_canonical_items( $canonical ) 
+	{
+		if ( is_singular('post') ) 
+		{
 			if (function_exists('pll_home_url'))
 				$canonical = pll_home_url() . user_trailingslashit('blog/'. get_post_field( 'post_name'));
 			else
 				$canonical = home_url(user_trailingslashit('blog/'. get_post_field( 'post_name')));
+		}
+		elseif (is_category())
+		{
+			$cat = get_category( get_query_var( 'cat' ) );
+
+			if (!is_wp_error($cat) && !empty($cat))
+			{
+				if (!function_exists('pll_translate_string'))
+				{
+					$categoria = !empty(get_option( 'category_base' )) ? get_option( 'category_base' ) : "category";
+					$canonical  =  home_url('/blog/'.$categoria.'/'. $cat->slug.'/');
+				}
+				else
+				{
+					$categoria = (!empty(get_option( 'category_base' )) ? pll_translate_string(get_option( 'category_base' ), pll_get_term_language($term_id)) : pll_translate_string("category", pll_get_term_language($term_id)));
+					$canonical  = home_url('/blog/'. $categoria . '/' . $cat->slug.'/');
+				}
+			}
+
 		}
 
 		//Use a second if statement here when needed 

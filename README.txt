@@ -31,6 +31,18 @@ No
 
 == Changelog ==
 
+
+= 1.2.8 =
+    - New features
+        - Add new effects to JS funtions
+    - Fixes
+        - Fixed some problems with URL on WooCommerce user menu
+        - Category Canonical and /blog/ added string not working right
+
+= 1.2.7 =
+    - New features
+        - Added JS and CSS classes and functions
+        
 = 1.2.6 =
     - New features
         - WooCommerce login menu can be an icon
